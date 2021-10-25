@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+
+    <!-- Acknowledgement: Code adapted from https://github.com/melcor76/js-tetris -->
+
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-lg mt-4">
+                <h3>INSTRUCTIONS</h3>
+                <p>UP KEY: Rotate Piece</p>
+                <p>DOWN KEY: Move down by 1 position</p>
+                <p>LEFT KEY: Move left by 1 position</p>
+                <p>RIGHT KEY: Move right by 1 position</p>
+                <p>SPACE KEY: Send to bottom</p>
+                <p>ESC KEY: End Game</p>
+            </div>
+
+            <div class="col-lg mt-4">
+                <canvas id="board" class="game-board"></canvas>
+            </div>
+
+            <div class="col-lg mt-4">
+                <div>
+                    <h1>TETRIS</h1>
+                    <p>Score: <span id="score">0</span></p>
+                    <p>Lines: <span id="lines">0</span></p>
+                    <p>Level: <span id="level">0</span></p>
+                    <canvas id="next" class="next"></canvas>
+                </div>
+
+                <div id="sound-div" >
+                    <span class="sound-item" id="sound-speaker"></span>
+                    <span class="sound-item" id="sound-description"></span>
+                </div>
+    
+                <button id="play-btn" onclick="play()" class="play-button">Play</button>
+                <button id="pause-btn" onclick="pause()" class="play-button" style="display: none;">Pause</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="constants.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <script type="text/javascript" src="piece.js"></script>
+    <script type="text/javascript" src="sound.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
