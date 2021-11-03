@@ -47,7 +47,9 @@ section {
 
 body {
     padding-top: 95px;
-    background-color: #ffdfd3;
+    /* background-color: #ffdfd3; */
+    background-color: #e7e5e4;
+
 }
 
 .fixed-top-2 {
@@ -60,9 +62,9 @@ body {
 
 /* Start Top Header */
 .top-header {
-    padding: 2rem;
+    padding: 2rem;  
     background-color: #ffdfd3;
-    /* background-image: url(../photos/Books.jpg); */
+    background-image: url(../photos/Books.jpg);
 }
 
 .navbar-brand {
@@ -96,6 +98,10 @@ body {
 
 /* END Top Header */
 
+.card{
+    background-color: rgb(240, 241, 179);
+    padding: 20px;
+}
 
 
 /* START #home*/
