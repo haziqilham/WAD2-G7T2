@@ -45,13 +45,24 @@ section {
     padding: 100px;
 }
 
+body {
+    padding-top: 95px;
+    background-color: #ffdfd3;
+}
 
+.fixed-top-2 {
+    margin-top: 56px;
+}
+
+.sticky-top {
+    padding-top: 56px;
+}
 
 /* Start Top Header */
 .top-header {
     padding: 2rem;
-    background-color: #413a37;
-    background-image: url(../photos/Books.jpg);
+    background-color: #ffdfd3;
+    /* background-image: url(../photos/Books.jpg); */
 }
 
 .navbar-brand {
@@ -77,6 +88,10 @@ section {
 .navbar-brand:hover,
 .navbar-brand:focus {
     color: rgb(17, 0, 252);
+}
+
+#the-nav{
+    font-size: 30px;
 }
 
 /* END Top Header */
