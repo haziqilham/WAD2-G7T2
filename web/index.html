@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -12,7 +12,7 @@
     <!-- Bootstrap JS Plugins -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-   <!-- Our Custom Css -->
+   <!-- Custom Css -->   
    <link rel="stylesheet" href="./css/main.css">
    
     <title>StudySite</title>
@@ -37,7 +37,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <!-- TODO: ADD HREF ID TO HOME HERE! -->
-                        <a href="#home" class="nav-link">Home</a>
+                        <a  class="nav-link" href="#home">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -110,14 +110,60 @@
         </nav>
          <!-- End NavBar -->
 
-        <!-- #TODO: add some box w/ translucent bg to fill w/ text -->
-         <section class="bg1" id="home">
+
+
+         <section class="bg4" id="home">             
              <div class="container">
+                <div class="row" style="text-align: center;">
+                    <div class="col-md"></div>
+                    <div class="col-md"></div>
+                    <div class="col-md" id="box">
+                        <h1>
+                            Welcome
+                        </h1>
+                        <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is the place for you!</p>
+                    </div>
+                </div>
               
              </div>
          </section>
-    
 
+         
+         <section class="bg1" id="about">             
+            <div class="container">
+               <div class="row" style="text-align: center;">
+                
+               
+                   <div class="col-md">
+                       <h1>
+                           About StudySite
+                       </h1>
+                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aperiam nam, adipisci quam culpa error repellendus molestiae at officiis, amet cupiditate sint iste. Animi, quos. Consectetur tenetur molestias culpa illum. </p>
+                   </div>
+               </div>
+             
+            </div>
+        </section>
+
+    
+        <section class="bg2" id="contact">
+            <div class="container">
+                <h1>
+                    Contact Us
+                </h1>
+                <div class="container">
+                    <div class="col-md">
+                        <div class="details" style="text-align: left;">
+                            <i class="fas fa-phone "></i>
+                            <h3>Phone Number:</h3>
+                            <p>88888888888</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
     
 </body>
 </html>

@@ -3,17 +3,51 @@
 .bg1 {
     text-align: center;
     min-height:500px;
-    min-width: fit-content;
-    background-color: honeydew;
+    /* min-width: fit-content; */
+    color: honeydew;
     background-image: url(../photos/bg1.jpg);
+    background-size: cover;
+}
+
+.bg2 {
+    text-align: center;
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg2.jpg);
     background-size: cover;
 }
 
 
 
+.bg3 {
+    text-align: center;
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg3.jpg);
+    background-size: cover;
+}
+
+
+
+.bg4 {
+    text-align: center;
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg4.jpg);
+    background-size: cover;
+}
+
+
+section {
+    padding: 100px;
+}
+
+
 
 /* Start Top Header */
-
 .top-header {
     padding: 2rem;
     background-color: #413a37;
@@ -45,5 +79,63 @@
     color: rgb(17, 0, 252);
 }
 
-
 /* END Top Header */
+
+
+
+/* START #home*/
+
+#home {
+    text-align: center;
+    background-size: cover;
+}
+
+#home .container {
+    padding: 60px;
+}
+
+#home #box {
+    background: rgba(7, 7, 7, 0.6);
+    margin: 20px;
+    padding: 20px;
+}
+
+#home p {
+    color: white;
+    font-size: 14px;
+}
+
+
+/* END #home */
+
+/* START about */
+#about {
+    text-align: center;
+    background-size: cover;
+}
+
+#about .container {
+    background: rgba(7, 7, 7, 0.6);
+    padding: 60px;
+    /* padding-top: 20px; */
+}
+
+
+
+/* END about */
+
+/* START contact */
+#contact {
+    text-align: center;
+    background-size: cover;
+}
+
+#contact .container {
+    background: rgba(7, 7, 7, 0.6);
+    padding: 60px;
+    /* padding-top: 20px; */
+}
+
+
+
+/* END contact */
