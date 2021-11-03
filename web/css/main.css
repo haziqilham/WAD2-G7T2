@@ -1,5 +1,4 @@
 
-
 .bg1 {
     text-align: center;
     min-height:500px;
@@ -46,7 +45,7 @@ section {
 }
 
 body {
-    padding-top: 95px;
+    padding-top: 105px;
     /* background-color: #ffdfd3; */
     background-color: #e7e5e4;
 
@@ -92,9 +91,6 @@ body {
     color: rgb(17, 0, 252);
 }
 
-#the-nav{
-    font-size: 30px;
-}
 
 /* END Top Header */
 
