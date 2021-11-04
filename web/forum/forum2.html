@@ -1,85 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum 2</title>
 
-     <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
-     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
-     crossorigin="anonymous">
- 
-     <!-- Reference to CSS 
-     <link rel="stylesheet" href="./forum.css">-->
 
-     <title>StudySite</title>
-    <!-- Favicon logo -->
-    <link rel="shortcut icon" type="image/jpg" href="../web/photos/faviconbook.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
- 
+    <!-- Bootstrap JS Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+       <!-- Custom Css -->   
+   <link rel="stylesheet" href="../css/main.css">
+   
     
+    <!-- Favicon logo -->
+    <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
 
+  <title>StudySite</title>
+
+   
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar">
 
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
-                <a href="#" class="navbar-brand mb-0 h1">Studysite</a>
-        
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+     <!-- START Top Header -->
+     <div class="top-header" > 
+      <div class="text-center ">
+          <a class="navbar-brand " href="../index.html">StudySite
+                  <small class="text-dark ">
+                      Notes for Everyone!
+                  </small>                      
+              </a>
+      </div>
+  </div>
+  <!-- END  Top Header -->
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a href="../web/index.html" class="nav-link active">Forum</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="marketplace.html" class="nav-link ">Marketplace</a>
-                        </li>
+  <!-- START NavBar -->
 
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link
-                            dropdown-toggle" 
-                            id="navbarDropdown" 
-                            role="button" 
-                            data-bs-toggle="dropdown" 
-                            aria-expanded="false">Games</a>
+  <!-- TODO: Add CSS class to navbar text etc -->
+  <nav id="navbar" class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
+      <!-- collapsible nav bar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#the-nav" aria-controls="the-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a href="#" class="dropdown-item">Game 1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item">Game 2</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item">Game 3</a>
-                                </li>
+      <div class="collapse navbar-collapse" id="the-nav">
+          <ul class="navbar-nav m-auto">
             
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+              <li class="nav-item">
+                  <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                  <a class="nav-link" href="#market">Marketplace</a>
+              </li> 
+              
 
-                <form class="d-flex">
-                    <input type="text" class="form-control me-2">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>    
-                
-            </nav>
-        </div>
+              <li class="nav-item">
+                  <!-- TODO: ADD HREF ID TO GAMES HERE! -->
+                  <a class="nav-link" href="../games.html">Games</a>
+              </li>                  
+              
+              <li class="nav-item">
+                  <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                  <a class="nav-link" href="./forum/forum2.html">Forum</a>
+              </li>        
+          </ul>                
+      </div>   
+  </nav>
+   <!-- End NavBar -->
 
         <div class="row" style=" justify-content: left; padding-top: 60px; padding-left: 10px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
             <div class="col-12">Message Board</div>
             <div class="col-auto" style="padding-right: 2px;">
-                <a href="../web/index.html" style="color: black; text-decoration: none; font-size: medium;">
+                <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
                     <p>Home</p></a>
             </div>
 
@@ -141,6 +135,9 @@
             
         </div>
 
+        <div id="replies">
+        </div>
+
 
         <div v-if="!button_click" class="row" style="padding-left: 15px; padding-top: 20px;" id="hide2">
             <table class="table" id="content">
@@ -159,9 +156,9 @@
                     <th scope="row">1</th>
                     <td>21 Oct</td>
                     <td>@Shah</td>
-                    <td><a href="#">WAD 2 Reflection</a></td>
+                    <td><a id="link_one" title="Click to see Replies" href="#" onclick="showComments();return false;">WAD 2 Reflection</a></td>
                     <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique aliquid quos totam deleniti illo nesciunt, quisquam a ipsam nostrum. Aspernatur, quibusdam mollitia. Delectus vitae sunt reiciendis voluptatibus totam temporibus esse?</td>
-                    <td>12</td>
+                    <td>2</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -211,8 +208,8 @@
               
         </div>
 
-        <div class="new" id='new' style="padding-left: 10px; display: none;">
-            <form>
+        <div class="new" id='new' style="padding-left: 10px; display:none;">
+            <form onsubmit="return false;">
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Category</label>
                   <select class="form-control" id="category">
@@ -243,7 +240,7 @@
                 
 
                 <div class="form-group" style="padding-top: 10px;">
-                    <button class="btn btn-primary" onclick=" return unhide()">Submit</button>
+                    <button class="btn btn-primary" onclick="return unhide()">Submit</button>
                 </div>
 
             </form>
