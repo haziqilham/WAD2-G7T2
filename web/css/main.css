@@ -1,4 +1,5 @@
 
+
 .bg1 {
     text-align: center;
     min-height:500px;
@@ -45,7 +46,9 @@ section {
 }
 
 body {
-    padding-top: 105px;
+    /* padding-top: 105px;
+     */
+     padding-top: 40px;
     /* background-color: #ffdfd3; */
     background-color: #e7e5e4;
 
@@ -53,6 +56,7 @@ body {
 
 .fixed-top-2 {
     margin-top: 56px;
+    padding-bottom: 56px;
 }
 
 .sticky-top {
@@ -63,7 +67,10 @@ body {
 .top-header {
     padding: 2rem;  
     background-color: #ffdfd3;
+    /* background-size: cover; */
     background-image: url(../photos/Books.jpg);
+    /* margin-top: 0px; */
+    
 }
 
 .navbar-brand {
@@ -72,6 +79,7 @@ body {
     font-weight: bold;
     font-size: 30px;
     line-height: 1.2;
+   
 }
 
 .navbar-brand span {
@@ -83,7 +91,7 @@ body {
     font-size: 13px;
     font-weight: normal;
     color: rgba(0, 0, 0, 0.3);
-    letter-spacing: 3px;
+    letter-spacing: 3px;   
 }
 
 .navbar-brand:hover,
