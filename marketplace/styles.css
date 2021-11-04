@@ -4,6 +4,7 @@
   }
 
   /*Ensure that the images in the carousell is the same as the default fixed size of the carousel size above*/
+
   .img1 img {
     width:350px;
     height: 250px;  
