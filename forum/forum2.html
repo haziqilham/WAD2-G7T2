@@ -141,6 +141,9 @@
             
         </div>
 
+        <div id="replies">
+        </div>
+
 
         <div v-if="!button_click" class="row" style="padding-left: 15px; padding-top: 20px;" id="hide2">
             <table class="table" id="content">
@@ -159,9 +162,9 @@
                     <th scope="row">1</th>
                     <td>21 Oct</td>
                     <td>@Shah</td>
-                    <td><a href="#">WAD 2 Reflection</a></td>
+                    <td><a id="link_one" title="Click to see Replies" href="#" onclick="showComments();return false;">WAD 2 Reflection</a></td>
                     <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique aliquid quos totam deleniti illo nesciunt, quisquam a ipsam nostrum. Aspernatur, quibusdam mollitia. Delectus vitae sunt reiciendis voluptatibus totam temporibus esse?</td>
-                    <td>12</td>
+                    <td>2</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -211,8 +214,8 @@
               
         </div>
 
-        <div class="new" id='new' style="padding-left: 10px; display: none;">
-            <form>
+        <div class="new" id='new' style="padding-left: 10px; display:none;">
+            <form onsubmit="return false;">
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Category</label>
                   <select class="form-control" id="category">
@@ -243,7 +246,7 @@
                 
 
                 <div class="form-group" style="padding-top: 10px;">
-                    <button class="btn btn-primary" onclick=" return unhide()">Submit</button>
+                    <button class="btn btn-primary" onclick="return unhide()">Submit</button>
                 </div>
 
             </form>
