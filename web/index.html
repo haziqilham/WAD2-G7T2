@@ -35,44 +35,6 @@
 
     </script>
 
-
-
-    <!-- <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sendmessage').click(function (e) {
-                e.preventDefault()
-                var name = document.getElementById("name");
-                var email = document.getElementById("email");
-                var subject = document.getElementById("subject")
-                var messagecontent = document.getElementById("message")
-                sendGrid_URL = "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send"
-                // payload ="{\"personalizations\": [{\"to\": [{\"email\": \"%s\"}], \"Cc\": [{\"email\": \"muhammadi.2019@sis.smu.edu.sg\"}],\"subject\": \"Acknowledgement of query [%s]\"}],\"from\": {\"email\": \"DeepDive@gmail.com\"},\"content\": [{\"type\": \"text/html\",\"value\": \"Hi %s,<br><br>Greetings from Deepdive! We have received your message and will respond to you as soon as possible. <br><br> Message: %s\"}]}" 
-
-                const testmessage = {
-                    to : email,
-                    from : "StudySite@gmail.com",
-                    subject : subject,
-                    text: "test message",
-                    html: "mail received"                    
-                };                
-
-                const headers = {
-                        'content-type': "application/json",
-                        'x-rapidapi-key': "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",
-                        'x-rapidapi-host': "rapidprod-sendgrid-v1.p.rapidapi.com"
-                    };
-                fetch(sendGrid_URL,data=testmessage,headers,{ mode: 'no-cors', method: 'POST' });
-            })
-        });
-
-    </script> -->
-
-
-
-
-
-
-
 </head>
 
 
@@ -205,7 +167,7 @@
         </div>
         <div class="container">
             <div class="col-lg-8 mt-5 mt-lg-0 ">
-                <form method="POST">
+                <form method="POST" action="sendgrid.php">
                     <div class="contactdetail">
                         <h3>
                             Got Questions for us? Leave a message and we'll get right back to you
@@ -234,7 +196,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button class="btn btn-warning" type="button" id="sendmessage">Send Message</button>
+                            <button class="btn btn-warning" type="submit" id="sendmessage">Send Message</button>
                         </div>
 
 
