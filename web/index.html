@@ -37,30 +37,30 @@
     </script>
 
     <script>
-        function weather(){
+        function weather() {
             var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
             var data = "Feeling Good!"
             var city = "Singapore"
             var url = "https://api.openweathermap.org/data/2.5/weather"
             var imgurl = "https://openweathermap.org/img/wn/"
-            var imgurl2 = "@2x.png"    
+            var imgurl2 = "@2x.png"
 
-            axios.get(url,{
-                params:{
-                    q : city,
-                    APPID : apikey
+            axios.get(url, {
+                params: {
+                    q: city,
+                    APPID: apikey
                 }
             })
-                .then(response =>{
+                .then(response => {
                     console.log(response)
                     console.log(response.data.weather[0].description)
                     console.log(response.data.weather[0].icon)
-                   
+
                     document.getElementById("weather").innerHTML = response.data.weather[0].description;
                     var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
-                    document.getElementById("image").src=imgurl3;
+                    document.getElementById("image").src = imgurl3;
                 })
-                .catch(error =>{
+                .catch(error => {
                     console.log(error.message)
                     data = "Invalid"
                 });
@@ -159,13 +159,13 @@
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md">
-                 <!-- <div id="weather"></div>    -->
+                    <!-- <div id="weather"></div>    -->
                 </div>
                 <div class="col-md"></div>
                 <div class="col-md-6" id="box">
 
 
-                   
+
                     <h1>
                         Welcome
                     </h1>
@@ -175,8 +175,10 @@
 
                     <h3>Today's weather is: </h3>
                     <img id="image" src="">
-                    <h1><div id="weather"></div></h1>
-                    
+                    <h1>
+                        <div id="weather"></div>
+                    </h1>
+
                 </div>
             </div>
 
@@ -236,7 +238,7 @@
                         <br>
 
                         <div class="form-group">
-                            <textarea name="message" id="message" placeholder="Message" cols="105" rows="8"></textarea>
+                            <textarea class="form-control" name="message" id="message" placeholder="Message"  rows="8"></textarea>                         
                         </div>
 
                         <div class="text-center">
