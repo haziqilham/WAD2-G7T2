@@ -17,6 +17,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- Custom Css -->
     <link rel="stylesheet" href="./css/main.css">
@@ -35,11 +36,38 @@
 
     </script>
 
+    <script>
+        function weather(){
+            var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
+            var data = "Feeling Good!"
+            var city = "Singapore"
+            var url = "https://api.openweathermap.org/data/2.5/weather"          
+
+            axios.get(url,{
+                params:{
+                    q : city,
+                    APPID : apikey
+                }
+            })
+                .then(response =>{
+                    console.log(response)
+                    console.log(response.data.weather[0].description)
+                   
+                    document.getElementById("weather").innerHTML = response.data.weather[0].description;
+                })
+                .catch(error =>{
+                    console.log(error.message)
+                    data = "Invalid"
+                });
+        }
+    </script>
+
+
 </head>
 
 
 
-<body data-spy="scroll" data-target="#top-navbar">
+<body data-spy="scroll" data-target="#top-navbar" onload="weather()">
 
 
     <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
@@ -125,14 +153,23 @@
     <section class="bg4" id="home">
         <div class="container">
             <div class="row" style="text-align: center;">
+                <div class="col-md">
+                 <!-- <div id="weather"></div>    -->
+                </div>
                 <div class="col-md"></div>
-                <div class="col-md"></div>
-                <div class="col-md" id="box">
+                <div class="col-md-6" id="box">
+
+
+                   
                     <h1>
                         Welcome
                     </h1>
                     <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is the
                         place for you!</p>
+
+
+                    <h3>Today's weather is:  <h1><div id="weather"></div></h1>  </h3>
+                    
                 </div>
             </div>
 
