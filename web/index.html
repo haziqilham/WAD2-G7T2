@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -7,155 +8,268 @@
 
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Bootstrap JS Plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
-   <!-- Custom Css -->   
-   <link rel="stylesheet" href="./css/main.css">
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./css/main.css">
+
     <title>StudySite</title>
     <!-- Favicon logo -->
     <link rel="shortcut icon" type="image/jpg" href="./photos/faviconbook.png">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sendmessage').click(function (e) {
+                e.preventDefault()
+                $('#alertmessage').html('<div class="alert alert-success"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">×</button>Email Sent</div>');
+            })
+        });
+
+    </script>
+
+    <script>
+        function weather() {
+            var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
+            var data = "Feeling Good!"
+            var city = "Singapore"
+            var url = "https://api.openweathermap.org/data/2.5/weather"
+            var imgurl = "https://openweathermap.org/img/wn/"
+            var imgurl2 = "@2x.png"
+
+            axios.get(url, {
+                params: {
+                    q: city,
+                    APPID: apikey
+                }
+            })
+                .then(response => {
+                    console.log(response)
+                    console.log(response.data.weather[0].description)
+                    console.log(response.data.weather[0].icon)
+
+                    document.getElementById("weather").innerHTML = response.data.weather[0].description;
+                    var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
+                    document.getElementById("image").src = imgurl3;
+                })
+                .catch(error => {
+                    console.log(error.message)
+                    data = "Invalid"
+                });
+        }
+    </script>
+
+
 </head>
 
 
 
-    <body data-spy="scroll" data-target="#top-navbar">       
-            
-            
-            <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
-                <div class="container-fluid">
-                <div class="collapse navbar-collapse justify-content-end">              
+<body data-spy="scroll" data-target="#top-navbar" onload="weather()">
+
+
+    <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse justify-content-end">
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                     
-                        <a  class="nav-link" href="#home">Home</a>
+
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        
+
                         <a class="nav-link" href="#about">About</a>
                     </li>
 
                     <li class="nav-item">
-                     
+
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
 
                     <li class="nav-item">
                         <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
                         <a class="nav-link" href="#login">Login</a>
-                    </li>    
+                    </li>
                 </ul>
-                </div>
-            </div>
-
-
-            </nav>
-        
-        <!-- START Top Header -->
-        <div class="top-header"> 
-            <div class="text-center ">
-                <a class="navbar-brand " href="./index.html">StudySite
-                        <small class="text-dark ">
-                            Notes for Everyone!
-                        </small>                      
-                    </a>
             </div>
         </div>
-        <!-- END  Top Header -->
 
 
-        <!-- START NavBar -->
+    </nav>
 
-        <!-- TODO: Add CSS class to navbar text etc -->
-        <nav id="navbar" class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
-            <!-- collapsible nav bar -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#the-nav" aria-controls="the-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="the-nav">
-                <ul class="navbar-nav m-auto">
-                  
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="#market">Marketplace</a>
-                    </li> 
-                    
-
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO GAMES HERE! -->
-                        <a class="nav-link" href="./games.html">Games</a>
-                    </li>                  
-                    
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="./forum/forum2.html">Forum</a>
-                    </li>        
-                </ul>                
-            </div>   
-        </nav>
-         <!-- End NavBar -->
+    <!-- START Top Header -->
+    <div class="top-header">
+        <div class="text-center ">
+            <a class="navbar-brand " href="./index.html">StudySite
+                <small class="text-dark ">
+                    Notes for Everyone!
+                </small>
+            </a>
+        </div>
+    </div>
+    <!-- END  Top Header -->
 
 
+    <!-- START NavBar -->
+
+    <!-- TODO: Add CSS class to navbar text etc -->
+    <nav id="navbar" class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
+        <!-- collapsible nav bar -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#the-nav"
+            aria-controls="the-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="the-nav">
+            <ul class="navbar-nav m-auto">
+
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                    <a class="nav-link" href="#market">Marketplace</a>
+                </li>
 
 
-         <section class="bg4" id="home">             
-             <div class="container">
-                <div class="row" style="text-align: center;">
-                    <div class="col-md"></div>
-                    <div class="col-md"></div>
-                    <div class="col-md" id="box">
-                        <h1>
-                            Welcome
-                        </h1>
-                        <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is the place for you!</p>
-                    </div>
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO GAMES HERE! -->
+                    <a class="nav-link" href="./games.html">Games</a>
+                </li>
+
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                    <a class="nav-link" href="./forum/forum2.html">Forum</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End NavBar -->
+
+
+
+
+    <section class="bg4" id="home">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-md">
+                    <!-- <div id="weather"></div>    -->
                 </div>
-              
-             </div>
-         </section>
+                <div class="col-md"></div>
+                <div class="col-md-6" id="box">
 
-         
-         <section class="bg1" id="about">             
-            <div class="container">
-               <div class="row" style="text-align: center;">
-                
-               
-                   <div class="col-md">
-                       <h1>
-                           About StudySite
-                       </h1>
-                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aperiam nam, adipisci quam culpa error repellendus molestiae at officiis, amet cupiditate sint iste. Animi, quos. Consectetur tenetur molestias culpa illum. </p>
-                   </div>
-               </div>
-             
+
+
+                    <h1>
+                        Welcome
+                    </h1>
+                    <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is the
+                        place for you!</p>
+
+
+                    <h3>Today's weather is: </h3>
+                    <img id="image" src="">
+                    <h1>
+                        <div id="weather"></div>
+                    </h1>
+
+                </div>
             </div>
-        </section>
 
-    
-        <section class="bg2" id="contact">
-            <div class="container">
-                <h1>
-                    Contact Us
-                </h1>
-                <div class="container">
-                    <div class="col-md">
-                        <div class="details" style="text-align: left;">
-                            <i class="fas fa-phone "></i>
-                            <h3>Phone Number:</h3>
-                            <p>88888888888</p>
+        </div>
+    </section>
 
+
+    <section class="bg1" id="about">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+
+
+                <div class="col-md">
+                    <h1>
+                        About StudySite
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aperiam nam, adipisci quam
+                        culpa error repellendus molestiae at officiis, amet cupiditate sint iste. Animi, quos.
+                        Consectetur tenetur molestias culpa illum. </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="bg2" id="contact">
+        <div class="container">
+            <h1>
+                Contact Us
+            </h1>
+        </div>
+        <div class="container">
+            <div class="col-lg-8 mt-5 mt-lg-0 ">
+                <form method="POST" action="sendgrid.php">
+                    <div class="contactdetail">
+                        <h3>
+                            Got Questions for us? Leave a message and we'll get right back to you
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" placeholder="Your Name" class="form-control">
+                            </div>
                         </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Your Email"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <input type="text" name="subject" id="subject" placeholder="Subject " class="form-control ">
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="message" placeholder="Message"  rows="8"></textarea>                         
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-warning" type="submit" id="sendmessage">Send Message</button>
+                        </div>
+
+
                     </div>
-                </div>
+                </form>
+                <div id="alertmessage"></div>
             </div>
-            
-        </section>
-    
+        </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script> -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+        crossorigin="anonymous "></script>
+
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>

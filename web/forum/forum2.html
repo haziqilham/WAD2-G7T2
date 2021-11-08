@@ -24,6 +24,45 @@
    
 </head>
 <body data-spy="scroll" data-target="#navbar">
+  <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+    <div class="collapse navbar-collapse justify-content-end">
+
+    
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <!-- TODO: ADD HREF ID TO HOME HERE! -->
+            <a  class="nav-link" href="#home">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <!-- TODO: ADD HREF ID TO ABOUT HERE! -->
+            <a class="nav-link" href="#about">About</a>
+        </li>
+
+        <li class="nav-item">
+            <!-- TODO: ADD HREF ID TO CONTACT HERE! -->
+            <a class="nav-link" href="#contact">Contact</a>
+        </li>
+
+        <li class="nav-item">
+            <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
+            <a class="nav-link" href="#login">Login</a>
+        </li>    
+
+
+    </ul>
+
+    </div>
+
+</div>
+
+
+</nav>
+
+
+
 
      <!-- START Top Header -->
      <div class="top-header" > 
@@ -70,7 +109,7 @@
   </nav>
    <!-- End NavBar -->
 
-        <div class="row" style=" justify-content: left; padding-top: 60px; padding-left: 10px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
+        <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
             <div class="col-12">Message Board</div>
             <div class="col-auto" style="padding-right: 2px;">
                 <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
@@ -82,10 +121,23 @@
             </div>
 
             <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-                <a href="forum.html" style="color: black; text-decoration: underline; font-size: medium;">
+                <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
                     <p>Forum</p>
                 </a>
             </div>
+
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0; display: none;" id="hide4">
+              <p>></p>
+          </div>
+
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
+              <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
+                  <p id="currentPosition"></p>
+              </a>
+          </div>
+
+        
+            
             
         </div>
 
@@ -104,7 +156,7 @@
                 
         </div> -->
 
-        <div class="row" style="padding-left:2px ; padding-top: 20px;">
+        <div class="row" style="padding-left:20px ; padding-top: 20px;">
             <div class="col-10">
                 <div class="dropdown" id='hide1'>
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="categorydownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -139,7 +191,7 @@
         </div>
 
 
-        <div v-if="!button_click" class="row" style="padding-left: 15px; padding-top: 20px;" id="hide2">
+        <div v-if="!button_click" class="row" style="padding-left: 30px; padding-top: 20px; padding-right: 50px;" id="hide2">
             <table class="table" id="content">
                 <thead>
                   <tr>
@@ -156,15 +208,15 @@
                     <th scope="row">1</th>
                     <td>21 Oct</td>
                     <td>@Shah</td>
-                    <td><a id="link_one" title="Click to see Replies" href="#" onclick="showComments();return false;">WAD 2 Reflection</a></td>
+                    <td><a id="link_one" title="Click to see Replies" href="#" onclick="showComments(id);return false;"><p id="link_one_word">WAD2 Reflection</p></a></td>
                     <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique aliquid quos totam deleniti illo nesciunt, quisquam a ipsam nostrum. Aspernatur, quibusdam mollitia. Delectus vitae sunt reiciendis voluptatibus totam temporibus esse?</td>
-                    <td>2</td>
+                    <td>3</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>21 Oct</td>
                     <td>@Kyong</td>
-                    <td>OOP Topics</td>
+                    <td><a id="link_two" title="Click to see Replies" href="#" onclick="showComments(id);return false;"><p id="link_two_word">OOP Topics</p></a></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis accusantium, reiciendis sed sunt ex dolorum doloribus at necessitatibus laudantium voluptatibus quis dignissimos fugit ullam aliquam soluta consectetur consequatur quae aperiam!</td>
                     <td>25</td>
                   </tr>
@@ -172,7 +224,7 @@
                     <th scope="row">3</th>
                     <td>22 Oct</td>
                     <td>@dawei98</td>
-                    <td>OOP Grouping</td>
+                    <td><a id="link_three" title="Click to see Replies" href="#" onclick="showComments(id);return false;"><p id="link_three_word">OOP Groupings</p></a></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facere placeat, animi consequuntur recusandae adipisci nemo, mollitia nulla nam, quidem omnis laudantium dolore quis voluptatum debitis libero quisquam reprehenderit commodi?</td>
                     <td>7</td>
                   </tr>
@@ -180,7 +232,7 @@
                     <th scope="row">4</th>
                     <td>22 Oct</td>
                     <td>@gabbychang</td>
-                    <td>IDP Project Filming</td>
+                    <td><a id="link_four" title="Click to see Replies" href="#" onclick="showComments(id);return false;"><p id="link_four_word">IDP Project Filming</p></a></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facere placeat, animi consequuntur recusandae adipisci nemo, mollitia nulla nam, quidem omnis laudantium dolore quis voluptatum debitis libero quisquam reprehenderit commodi?</td>
                     <td>81</td>
                   </tr>
@@ -188,7 +240,7 @@
                     <th scope="row">5</th>
                     <td>22 Oct</td>
                     <td>@avocadog</td>
-                    <td>Bayern Munich Fanclub SMU</td>
+                    <td><a id="link_five" title="Click to see Replies" href="#" onclick="showComments(id);return false;"><p id="link_five_word">SMU Football Gossip</p></a></td>
                     <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facere placeat, animi consequuntur recusandae adipisci nemo, mollitia nulla nam, quidem omnis laudantium dolore quis voluptatum debitis libero quisquam reprehenderit commodi?</td>
                     <td>91</td>
                   </tr>
