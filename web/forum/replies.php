@@ -1,10 +1,24 @@
+<?php 
+              include 'conn.php';
+              require_once './database/model/Post.php';
+              require_once './database/model/PostDAO.php';
+              require_once './database/model/ConnectionManager.php';
+              $id = $_GET['id'];
+              
+              
+              $dao = new POSTDAO();
+              $posts = $dao->get($id);
+              //var_dump($posts);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>StudySite</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,10 +40,8 @@
     <!-- Favicon logo -->
     <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
 
-  <title>StudySite</title>
-
-   
 </head>
+<body>
 <body data-spy="scroll" data-target="#navbar">
   <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
     <div class="container-fluid">
@@ -109,7 +121,7 @@
               
               <li class="nav-item">
                   <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                  <a class="nav-link" href="../forum/forum2.html">Forum</a>
+                  <a class="nav-link" href="../forum/forum3.php">Forum</a>
               </li>        
           </ul>                
       </div>   
@@ -117,7 +129,15 @@
    <!-- End NavBar -->
 
         <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
-            <div class="col-12">Message Board</div>
+            <div>
+                <?php 
+                //var_dump($_GET);
+                $name = $_GET['name'];
+                echo $name
+            
+                ?>
+            </div>
+            
             <div class="col-auto" style="padding-right: 2px;">
                 <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
                     <p>Home</p></a>
@@ -128,40 +148,35 @@
             </div>
 
             <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-                <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
+                <a href="./forum3.php" style="color: black; text-decoration: none; font-size: medium;" id="forum">
                     <p>Forum</p>
                 </a>
             </div>
 
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0; display: none;" id="hide4">
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
               <p>></p>
-          </div>
+            </div>
 
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-              <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
-                  <p id="currentPosition"></p>
-              </a>
-          </div>
+            <div class="col-auto" style="padding-left:2px; padding-right: 2px; font-size:medium; margin-left: 0;">
+                <p>
+                    <u>
+                        <?php 
+                        $name = $_GET['name'];
+                        echo $name;
+                        ?>
+                    </u>
+                </p>
+            </div>
 
+
+          
+
+
+          
         
             
             
         </div>
-
-        <!-- <div class="row" style="padding-left: 10px; background-image: url(../web/photos/Books.jpg);">
-            <div class="col-auto" style="padding-left: 5px; padding-right: 5px;">
-                <a href="homepage.html" style="color: black; text-decoration: none;">Home</a>
-            </div>
-
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-                >
-            </div>
-
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-                <a href="forum.html" style="color: black; text-decoration: underline;">Forum</a>
-            </div>
-                
-        </div> -->
 
         <div class="row" style="padding-left:20px ; padding-top: 20px;">
             <div class="col-10">
@@ -182,6 +197,40 @@
               </a>
             </div>
 
+            </div>
+
+            <div id="app" style="padding-left: 20px;">    
+          <h4 style="padding-top: 10px"> Thread Posts </h4> 
+          <table class="table table-striped" style="padding-left: 40px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Reply ID</th>
+                    <th>Date</th>
+                    <th>Username</th>
+                    <th>Reply</th>
+                </tr>
+            </thead>
+                      
+            <tbody>
+              <?php 
+              //var_dump($posts);
+              foreach($posts as $post){
+                echo "
+                  <tr>
+                    <td>{$post->getID()}</td>
+                    <td>{$post->getRID()}</td>
+                    <td>{$post->getDate()}</td>
+                    <td>{$post->getUsername()}</td>
+                    <td>{$post->getReply()}</td>
+                  </tr>
+                ";
+              }
+              var_dump($id);
+              
+              ?>
+            </tbody>
+
             <!-- <div class="col-2" id="hide3">
                 <button class="btn btn-primary" onclick="return showThread()">New Thread</button>
             </div> -->
@@ -199,6 +248,9 @@
             
         </div>
 
+
+
+
         <!-- <div class="col-2" id="hide3">
           <a href="add_thread.php">
   
@@ -206,78 +258,6 @@
             <button class="btn btn-primary" onclick="return showThread()">New Thread</button>
           </a>
         </div> -->
-  
-        <div id="app" style="padding-left: 20px;">    
-          <h4 style="padding-top: 10px"> Thread Posts </h4> 
-          <table class="table table-striped" style="padding-left: 40px;">
-                      
-              <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Username</th>
-                <th>Thread Name</th>
-                <th>Content</th>
-                <th>Reply</th>
-  
-              </tr>
-            
-              <tr v-for="thread in threads">
-                  <td>{{thread.id}}</td>
-                  <td>{{thread.date}}</td>
-                  <td>{{ thread.username}}</td>
-                  <td>
-                    
-                    <!--<a v-bind:href="'replies.html?arg=' +thread.id" >{{ thread.threadName}}</a>-->
-                    <form action="replies.php" method="post">
-
-                      <button class="btn btn-link" name="checking" v-bind:value="thread.threadName">{{ thread.threadName }}</button>
-
-
-                      <!--<a v-bind:href="'replies.php?arg=' + thread.threadName" name="checking" v-bind:value="thread.threadName">{{ thread.threadName}} </a>-->
-                    </form>
-                    <!--<a v-bind:href="'replies.php?arg=' + thread.threadName">{{ thread.threadName}} </a>-->
-                    <!--<a v-bind:href="replies.html?id={$post_object->getID()}">{{ thread.threadName }}</a>-->
-                  </td>
-                  <td>{{thread.content}}</td>
-                  <td>
-                    <form action="add_reply.php" method="post">
-                      <button class="btn btn-success" name="check" v-bind:value="thread.threadName" >Reply</button>
-                    </form>
-                  </td>
-                </tr>
-              
-                
-          </table>
-        </div>
-  
-        <div class="container" style="margin-top: 30px; padding-left: 10px; display: none;" id="new" >
-          <form action="insertData.php" method="get">
-            <div class="form-group">
-              <label for="username">Username :</label>
-              <input type="text" name="username" id="username" v-model="username" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="threadName">Thread Name:</label>
-              <input type="text" name="threadName" class="form-control" v-model="threadName" >
-            
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Content</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="content" v-model="content"></textarea>
-            </div>
-  
-            <div class="form-group" style="padding-top: 10px;">
-              <a href="add_thread.php">
-                <button class="btn btn-primary" type="submit" v-on:click="insertData()" >Submit</button>
-              </a>
-            </div>
-  
-            
-                      
-          </form>
-        </div>
-        
-    </div>
   
   
     </div>
@@ -313,33 +293,8 @@
   
       </div> -->
   
-      <script>
-        Vue.createApp({
-            data() {
-                return {
-                    threads: [] // array of post objects
-                }
-            },
-            created() { // created is a hook that executes as soon as Vue instance is created
-                axios.get('http://localhost/IS216/WAD2-G7T2/forum/database/getPosts.php')
-                .then(response => {
-                    // this gets the data, which is an array, and pass the data to Vue instance's posts property
-                    this.threads = response.data
-                    
-                })
-                .catch(error => {
-                    this.threads = [{ entry: 'There was an error: ' + error.message }]
-                })
-            }
-        }).mount('#app')
-    </script>
-
-    
       
   
-      <script src="forum.js"></script>
-      <script src="vue.js"></script>
-      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <!-- <div id="replies">
         </div>
@@ -414,43 +369,7 @@
               
         </div>
 
-        <div class="new" id='new' style="padding-left: 10px; display:none;">
-            <form onsubmit="return false;">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Category</label>
-                  <select class="form-control" id="category">
-                    <option>Haziq</option>
-                    <option>Soon Ann</option>
-                    <option>Dai Wei</option>
-                    <option>Bee Qi</option>
-                    <option>Ik Hon</option>
-                  </select>
-                </div>
-
-                <div class="form-group" style="padding-top: 10px;">
-                    <label for="exampleFormControlInput1">Username</label>
-                    <input type="text" class="form-control" id="username">
-
-                <div class="form-group" style="padding-top: 10px;">
-                    <label for="exampleFormControlInput1">Thread Name</label>
-                    <input type="text" class="form-control" id="threadName" placeholder="UC Berkeley">
-                </div>
-
-                
-            
-                <div class="form-group" style="padding-top: 10px;">
-                  <label for="exampleFormControlTextarea1">Content</label>
-                  <textarea class="form-control" id="input" placeholder="Write something here..." rows="6"></textarea>
-                </div>
-
-                
-
-                <div class="form-group" style="padding-top: 10px;">
-                    <button class="btn btn-primary" onclick="return unhide()">Submit</button>
-                </div>
-
-            </form>
-
+        
             <!-- <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="check">check</span>
@@ -498,10 +417,40 @@
     </div>
 
 
+    
+
+
+    <script>
+      Vue.createApp({
+          data() {
+              return {
+                  replies: [] // array of post objects
+              }
+          },
+          created() { // created is a hook that executes as soon as Vue instance is created
+              axios.get('http://localhost/IS216/WAD2-G7T2/forum/replies_database/getReplies.php')
+              .then(response => {
+                  // this gets the data, which is an array, and pass the data to Vue instance's posts property
+                  
+                  this.replies = response.data
+                  console.log(response.data);
+                  
+              })
+              .catch(error => {
+                  this.replies = [{ entry: 'There was an error: ' + error.message }]
+              })
+          }
+      }).mount('#app')
+  </script>
+
+
 
     <!--<script src="https://unpkg.com/vue@next"></script>-->
     <script src="forum.js"></script>
-    
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    
 </body>
 </html>
