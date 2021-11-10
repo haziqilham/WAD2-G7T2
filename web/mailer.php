@@ -17,11 +17,6 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: <StudySite@gmail.com>' . "\r\n";
 
 mail($to,$subject,$message,$headers);
-// if (mail($to, $subject, $body, $headers)) {
-//     $result = '<div class="alert alert-success">Thank You</div>';
-// } else {
-//     $result = '<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-// }
 
 header('Location: index.html');
 exit();
