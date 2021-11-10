@@ -30,9 +30,9 @@
         $(document).ready(function () {
             $('#sendmessage').click(function (e) {
                 e.preventDefault()
-                $('#alertmessage').html('<div class="alert alert-success"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">×</button>Email Sent</div>');
+                $('#alertmessage').html('<br><div class="alert alert-success alert-dismissible fade show" role="alert">Email Sent<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button></div>');
             })
-        });
+        });     
 
     </script>
 
@@ -74,7 +74,7 @@
 
 <body data-spy="scroll" data-target="#top-navbar" onload="weather()" id='app'>
 
-
+   
     <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse justify-content-end">
@@ -167,7 +167,7 @@
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md">
-                    <!-- <div id="weather"></div>    -->
+                    
                 </div>
                 <div class="col-md"></div>
                 <div class="col-md-6" id="box">
@@ -218,8 +218,10 @@
                 Contact Us
             </h1>
         </div>
+        
         <div class="container">
-            <div class="col-lg-8 mt-5 mt-lg-0 ">
+            
+            <div class="col-lg-12 mt-5 mt-lg-0 ">
                 <form method="POST" action="mailer.php">
                     <div class="contactdetail">
                         <h3>
@@ -247,7 +249,7 @@
                         <div class="form-group">
                             <textarea class="form-control" name="message" id="message" placeholder="Message"  rows="8"></textarea>                         
                         </div>
-
+                        <br>
                         <div class="text-center">
                             <button class="btn btn-warning" type="submit" id="sendmessage">Send Message</button>
                         </div>
