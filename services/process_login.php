@@ -1,5 +1,6 @@
 <?php
 
+
 # Autoload and start session
 spl_autoload_register(
     function($class){
@@ -48,7 +49,6 @@ if ( isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $pwd = $_POST['password'];
     $results = doLogin($email, $pwd, $results);
-    $_SESSION['result'] = $results;
 
 } else { // axios sends via raw data
     $obj = json_decode( file_get_contents("php://input") );
