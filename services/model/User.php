@@ -2,11 +2,14 @@
     class User{
         private $username;
         private $hashedPassword;
-        private $name;
-        public function __construct($username,$name,$hashedPassword){
+        private $first_name;
+        private $last_name;
+        public function __construct($username,$first_name,$last_name,$hashedPassword){
             $this->username = $username;
             $this->hashedPassword = $hashedPassword;
-            $this->name = $name;
+            $this->first_name = $first_name;
+            $this->last_name = $last_name;
+
         }
         public function getUsername(){
             return $this->username;
@@ -14,8 +17,11 @@
         public function getHashedPassword(){
             return $this->hashedPassword;
         }
-        public function getName(){
-            return $this->name;
+        public function getFirstName(){
+            return $this->first_name;
+        }
+        public function getLastName(){
+            return $this->last_name;
         }
     }
 ?>

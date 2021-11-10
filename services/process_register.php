@@ -6,16 +6,19 @@
         }
     );
 
-    function doRegister($email, $id_name, $password, $results) {    
+    function doRegister($email, $first_name, $last_name, $password, $results) {    
 
         $hashed = password_hash($password, PASSWORD_DEFAULT);
+        $process_first_name = ucwords(strtolower($first_name));
+        $process_last_name = ucwords(strtolower($last_name));
 
 
         $dao = new UserDAO();
-        $status = $dao->add($email, $id_name, $hashed);
+        $status = $dao->add($email, $process_first_name, $process_last_name, $hashed);
         if($status){
             $results['status'] = true;
-            $results['id_name'] = $id_name;
+            $results['first_name'] = $process_first_name;
+            $results['last_name'] = $process_last_name;
             $results["email"] = $email ;
 
         }
@@ -31,18 +34,21 @@
     ];
 
 
-    if ( isset($_POST['email']) && isset($_POST['password']) && isset($_POST['id_name'])) {
+    if ( isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_name']) && isset($_POST['last_name']) && $_POST['password'] === $_POST['confirm_password']) {
+        var_dump($_POST);
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $id_name = $_POST['id_name'];
-        $results = doRegister($email, $id_name, $password,$results);
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $results = doRegister($email, $first_name ,$last_name, $password,$results);
     
     } else { // axios sends via raw data
         $obj = json_decode( file_get_contents("php://input") );
         $email = $obj->email;
         $password = $obj->password;
-        $id_name = $obj->id_name;
-        $results = doRegister($email, $id_name, $password,$results);
+        $first_name = $obj->first_name;
+        $last_name = $obj->last_name;
+        $results = doRegister($email, $first_name ,$last_name, $password,$results);
     }
     
     

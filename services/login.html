@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>StudySite</title>
+    <title>Account Mgmt</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,21 +25,30 @@
 
 <body>
 
-    <div id='app' class="container text-center" style="width: 60%;">
+    <div id='app' class="container text-center">
 
+        <!-- TODO: Show the following div block when there is no logged in user. -->
         <div class="row p-1" v-if='user === null'>
             <div class="col-sm">
+                <!-- TODO: use the Vue component ‘my-login’ -->
                 <my-login @login='doLoginSuccess'></my-login>
             </div>
         </div>
 
-        
+        <!-- TODO: Show the following div block when there is a successfully logged in user. -->
+        <div class="row p-1" v-else>
+            <div class='col-sm'>
+                <p class="bg-success text-white p-3 text-left">
+                    Welcome {{user.name}}!
+                    <button class="btn btn-primary" @click="doLogout">Logout</button>
+                </p>
+            </div>
+        </div>
 
     </div>
     
-    
 
-    <script src='component.js'></script>
+    <script src='../login page/component.js'></script>
 
     <!-- Bootstrap Javascript -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'

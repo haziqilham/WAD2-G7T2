@@ -28,7 +28,8 @@ function doLogin($email, $password, $results) {
         if($success){
             $results["status"] = true;
             $results["email"] = $email ;
-            $results["id_name"] = $user->getName();
+            $results["first_name"] = $user->getFirstName();
+            $results["last_name"] = $user->getLastName();
         }
 
         // $result_convert = json_encode( $results, JSON_PRETTY_PRINT );
@@ -47,6 +48,7 @@ if ( isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $pwd = $_POST['password'];
     $results = doLogin($email, $pwd, $results);
+    $_SESSION['result'] = $results;
 
 } else { // axios sends via raw data
     $obj = json_decode( file_get_contents("php://input") );

@@ -9,6 +9,9 @@ const app = Vue.createApp({
         doLoginSuccess(userInfo) {
             // console.log(userInfo)
             this.user = userInfo;
+            if (this.user){
+                window.location.href = '../web/index.html';
+            }
         },
         doRegisterSuccess(userInfo) {
             // console.log(userInfo)
@@ -31,20 +34,37 @@ app.component('my-login', {
 
     emits: ['login'],
 
-    template: `<div class="input-group mb-3">
-                    <span class="input-group-text">User ID</span>
-                    <input type="text" class="form-control" placeholder="apple.2020" v-model=userid>
-                </div>
+    template: `<div class="container mb-3">
+                <div>
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-8" style="text-align: left;">
+                            <h4>Welcome to StudySite! Please login.</h4>
+                        </div>
+                        <div class="col-4" style="text-align: right;">
+                            <h6 style="font-size: 12px;" class="text-right">New member? <a href="register.html">Register</a> here.</h6>
+                        </div>
+                    </div>
+                    <form onsubmit="return false;">
+                    <div class="container bg-light" style="padding: 10px;">
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="student@scis.smu.edu.sg" v-model='userid' required>
+                                <div id="emailHelp" class="form-text">Please input a valid student email address!</div>
+                            </div>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Password</span>
-                    <input type="password" class="form-control" v-model=pwd>
-                </div>
-                <button class="btn btn-primary" v-on:click='doLogin'>Login</button>
-                <hr>
-                <div>{{message}}</div>`,
-    // <button class='btn btn-primary' @click='doLogin'>Login</button>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" v-model='pwd' required>
+                            </div>
+                            <hr>
 
+                            <button v-on:click='doLogin' class="btn btn-info">Login</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>`,
 
     data() {
         return {
@@ -71,6 +91,7 @@ app.component('my-login', {
                         this.$emit("login", {
                             userid: this.userid,
                             name: result["id_name"],
+                            first_name: result['first_name']
                         })
                     }
 
@@ -95,31 +116,50 @@ app.component('my-register', {
 
     emits: ['register'],
 
-    template: `<div class="input-group mb-3">
-                    <span class="input-group-text">Email</span>
-                    <input type="text" class="form-control" placeholder="student.2020@scis.smu.edu.sg" v-model=email>
-                </div>
+    template: `<div class="container bg-light" style="padding: 10px;">
+                    <div class="row" style="margin-top: 10px;">
+                    <form onsubmit="return false;">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="student@scis.smu.edu.sg" v-model='email' required>
+                            <div id="emailHelp" class="form-text">Please input a valid student email address!</div>
+                        </div>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text">User ID</span>
-                    <input type="text" class="form-control" placeholder="apple.2020" v-model=userid>
-                </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" name="first_name" placeholder="Jun Jie" v-model='first_name' required>
+                            </div>
+                            <div class="col">
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" placeholder="Tan" v-model='last_name' required>
+                            </div>
+                        </div>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Password</span>
-                    <input type="password" class="form-control" v-model=pwd>
-                </div>
-                <button class="btn btn-primary" v-on:click='doRegister'>Register</button>
-                <hr>
-                <div>{{message}}</div>`,
-    // <button class='btn btn-primary' @click='doLogin'>Login</button>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" v-model='pwd' required>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="confirm_password" v-model='confirm_pwd' required>
+                        </div>
+
+                        <h6 class="mb-3" style="font-size: 10px;">By clicking "SIGN UP", I agree to all the relevant terms and conditions.</h6>
+                        <hr>
+                        <button v-on:click='doRegister' class="btn btn-info">SIGN UP</button>
+                        </form>
+                    </div>
+                </div>`,
 
     data() {
         return {
-            email:'',
-            userid: '',
+            email: '',
+            first_name: '',
+            last_name: '',
             pwd: '',
+            confirm_pwd: '',
             message: ''
         }
     },
@@ -130,7 +170,9 @@ app.component('my-register', {
                 .post("../services/process_register.php", {
                     email: this.email,
                     password: this.pwd,
-                    id_name: this.userid
+                    first_name: this.first_name,
+                    last_name: this.last_name
+
                 })
                 .then((response) => {
                     // console.log(response)
@@ -141,7 +183,9 @@ app.component('my-register', {
                         this.pwd = "";
                         this.$emit("register", {
                             email: this.email,
-                            name: result["id_name"],
+                            first_name: result["first_name"],
+                            last_name: result['last_name'],
+                            reg_status: result['Successfully Registered. Please login now!']
                         })
                     }
 
