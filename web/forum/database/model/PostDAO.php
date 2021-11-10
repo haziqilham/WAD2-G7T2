@@ -8,7 +8,9 @@ class PostDAO {
         // STEP 1
         $connMgr = new ConnectionManager();
         $conn = $connMgr->connect();
-
+        $limit = 10;
+        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $start = ($page -1) * $limit;
         
         // STEP 2
         $sql = "SELECT
@@ -17,7 +19,7 @@ class PostDAO {
                     username,
                     threadName,
                     content
-                FROM threads"; // SELECT * FROM post; // This will also work
+                FROM threads LIMIT $start, $limit"; // SELECT * FROM post; // This will also work
         $stmt = $conn->prepare($sql);
 
         // STEP 3
@@ -68,6 +70,7 @@ class PostDAO {
             $posts[] =
                 new Post2(
                     $row['id'],
+                    $row['likes'],
                     $row['reply_id'],
                     $row['date'],
                     $row['username'],

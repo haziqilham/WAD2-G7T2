@@ -209,62 +209,64 @@ function showComments(id) {
 
 }
 
-function incrementCounter1() {
-    //console.log(id)
+// function incrementCounter() {
+//     console.log(id)
 
-    var disp = document.getElementById('likesOne');
-    likesCountOne++;
-    disp.innerHTML = likesCountOne;
+//     var disp = document.getElementById('likesOne');
+//     likesCountOne++;
+//     disp.innerHTML = likesCountOne;
     
 
-}
+// }
 
 
-function decrementCounter1() {
-    //console.log("This is down")
+// function decrementCounter1() {
+//     //console.log("This is down")
     
-    var disp = document.getElementById('likesOne');
-    likesCountOne--;
-    disp.innerHTML = likesCountOne;
+//     var disp = document.getElementById('likesOne');
+//     likesCountOne--;
+//     disp.innerHTML = likesCountOne;
     
-}
+// }
 
-function incrementCounter2() {
-    //console.log(id)
+// function incrementCounter2() {
+//     //console.log(id)
 
-    var disp = document.getElementById('likesTwo');
-    likesCountTwo++;
-    disp.innerHTML = likesCountTwo;
-    
-
-}
-
-
-function decrementCounter2() {
-    //console.log("This is down")
-    
-    var disp = document.getElementById('likesTwo');
-    likesCountTwo--;
-    disp.innerHTML = likesCountTwo;
-    
-}
-
-function incrementCounter3() {
-    //console.log(id)
-
-    var disp = document.getElementById('likesThree');
-    likesCountThree++;
-    disp.innerHTML = likesCountThree;
+//     var disp = document.getElementById('likesTwo');
+//     likesCountTwo++;
+//     disp.innerHTML = likesCountTwo;
     
 
-}
+// }
 
 
-function decrementCounter3() {
-    //console.log("This is down")
+// function decrementCounter2() {
+//     //console.log("This is down")
     
-    var disp = document.getElementById('likesThree');
-    likesCountThree--;
-    disp.innerHTML = likesCountThree;
+//     var disp = document.getElementById('likesTwo');
+//     likesCountTwo--;
+//     disp.innerHTML = likesCountTwo;
     
-}
+// }
+
+// function incrementCounter3() {
+//     //console.log(id)
+
+//     var disp = document.getElementById('likesThree');
+//     likesCountThree++;
+//     disp.innerHTML = likesCountThree;
+    
+
+// }
+
+
+// function decrementCounter3() {
+//     //console.log("This is down")
+    
+//     var disp = document.getElementById('likesThree');
+//     likesCountThree--;
+//     disp.innerHTML = likesCountThree;
+    
+// }
+
+

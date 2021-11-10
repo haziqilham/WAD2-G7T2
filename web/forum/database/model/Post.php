@@ -7,7 +7,6 @@ class Post {
     private $threadName;
     private $content;
 
-
     public function __construct($id, $date, $username, $threadName, $content) {
         $this->id = $id;
         $this->date = $date;
@@ -35,20 +34,19 @@ class Post {
     public function getContent() {
         return $this->content;
     }
-
-
 }
 
 class Post2 {
     private $id;
+    private $likes;
     private $reply_id;
     private $date;
     private $username;
     private $reply;
 
-
-    public function __construct($id, $reply_id, $date, $username, $reply) {
+    public function __construct($id, $likes, $reply_id, $date, $username, $reply) {
         $this->id = $id;
+        $this->likes = $likes;
         $this->reply_id = $reply_id;
         $this->date = $date;
         $this->username = $username;
@@ -59,6 +57,9 @@ class Post2 {
         return $this->id;
     }
 
+    public function getLikes() {
+        return $this->likes;
+    }
     public function getRID() {
         return $this->reply_id;
     }
@@ -74,8 +75,6 @@ class Post2 {
     public function getReply() {
         return $this->reply;
     }
-
-
 }
 
 ?>

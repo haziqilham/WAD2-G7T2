@@ -248,7 +248,7 @@
                         </a>
                     </li>
                     <?php for($i =1; $i<= $pages; $i++) : ?>
-                    <li class="page-item"><a  class="page-link" href="forum3.php?page=<?=$i;?>"><?=$i;?></a></li>
+                    <li id="currentPage" class="page-item"><a  class="page-link" href="forum3.php?page=<?=$i;?>"><?=$i;?></a></li>
                     <?php endfor; ?>
                     <li class="page-item">
                         <a class="page-link" href="forum3.php?page=<?= $next; ?>" aria-label="Next">
