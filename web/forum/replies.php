@@ -1,15 +1,12 @@
 <?php 
-              include 'conn.php';
-              require_once './database/model/Post.php';
-              require_once './database/model/PostDAO.php';
-              require_once './database/model/ConnectionManager.php';
-              $id = $_GET['id'];
-              
-              
-              $dao = new POSTDAO();
-              $posts = $dao->get($id);
-              //var_dump($posts);
-
+    include 'conn.php';
+    require_once './database/model/Post.php';
+    require_once './database/model/PostDAO.php';
+    require_once './database/model/ConnectionManager.php';
+    $id = $_GET['id'];         
+    $dao = new POSTDAO();
+    $posts = $dao->get($id);
+    //var_dump($posts);
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +64,7 @@
                 <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
                 <a class="nav-link" href="#login">Login</a>
             </li>    
-        </ul>
+          </ul>
 
       </div>
 
@@ -98,160 +95,141 @@
 
       <div class="collapse navbar-collapse" id="the-nav">
           <ul class="navbar-nav m-auto">
-            
               <li class="nav-item">
                   <!-- TODO: ADD HREF ID TO Forum HERE! -->
                   <a class="nav-link" href="#market">Marketplace</a>
               </li> 
-              
-
               <li class="nav-item">
                   <!-- TODO: ADD HREF ID TO GAMES HERE! -->
                   <a class="nav-link" href="../games.html">Games</a>
               </li>                  
-              
               <li class="nav-item">
                   <!-- TODO: ADD HREF ID TO Forum HERE! -->
                   <a class="nav-link" href="../forum/forum3.php">Forum</a>
               </li>        
           </ul>                
       </div>   
-  </nav>
+    </nav>
    <!-- End NavBar -->
 
-  <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
-    <div>
-      <?php 
-        $name = $_GET['name'];
-        echo $name
-      ?>
-    </div>
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
+      <div>
+        <?php 
+          $name = $_GET['name'];
+          echo $name
+        ?>
+      </div>
             
-    <div class="col-auto" style="padding-right: 2px;">
-      <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
-          <p>Home</p></a>
-    </div>
+      <div class="col-auto" style="padding-right: 2px;">
+        <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
+          <p>Home</p>
+        </a>
+      </div>
 
-    <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
+      <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
       <p>></p>
-    </div>
+      </div>
 
-    <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-      <a href="./forum3.php" style="color: black; text-decoration: none; font-size: medium;" id="forum">
-        <p>Forum</p>
-      </a>
-    </div>
+      <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
+        <a href="./forum3.php" style="color: black; text-decoration: none; font-size: medium;" id="forum">
+          <p>Forum</p>
+        </a>
+      </div>
 
-    <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
-      <p>></p>
-    </div>
+      <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
+        <p>></p>
+      </div>
 
-    <div class="col-auto" style="padding-left:2px; padding-right: 2px; font-size:medium; margin-left: 0;">
-      <p>
-        <u>
-          <?php 
-            $name = $_GET['name'];
-            echo $name;
-          ?>
-        </u>
-      </p>
-    </div>
-  </div>
-
-
-  <div class="row" style="padding-left:20px ; padding-top: 20px;">
-    <div class="col-10">
-      <div class="dropdown" id='hide1'>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="categorydownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categories
-        </button>
-        <div class="dropdown-menu" aria-labelledby="categorydownMenuButton">
-          <a class="dropdown-item" href="#" onclick="haziq()">Haziq</a>
-          <a class="dropdown-item" href="#">Soon Ann</a>
-          <a class="dropdown-item" href="#">DaiWei</a>
-        </div>
+      <div class="col-auto" style="padding-left:2px; padding-right: 2px; font-size:medium; margin-left: 0;">
+        <p>
+          <u>
+            <?php 
+              $name = $_GET['name'];
+              echo $name;
+            ?>
+          </u>
+        </p>
       </div>
     </div>
 
-    <div class="col-2" id="hide3">
-      <a href="add_thread.php">
-        <button class="btn btn-primary" onclick="return showThread()">New Thread</button>
-      </a>
+
+    <div class="row" style="padding-left:20px ; padding-top: 10px;">
+      <div class="col-auto">
+      <?php
+        //var_dump($_GET);
+        $check_one = $_GET['id'];
+        $check_two = $_GET['name'];
+        //var_dump($check_one);
+        echo "<a class='btn btn-success btn-lg' href='add_reply.php?id=$check_two&value=$check_one'>New Reply</a>"
+      ?>
+        <!--<button class="btn btn-success btn-lg">New Reply</button>-->
+      
+      </div>
     </div>
-  </div>
 
 
-  <div id="app" style="padding-left: 20px;">    
-    <h4 style="padding-top: 10px"> Thread Posts </h4> 
-      <table class="table table-striped" style="padding-left: 40px;">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Reply ID</th>
-            <th>Likes</th>
-            <th>Date</th>
-            <th>Username</th>
-            <th>Reply</th>
-            <th>Button</th>
-                    
-          </tr>
-        </thead>
+    <div id="app" style="padding-left: 20px; padding-right:20px">    
+      <h4 style="padding-top: 10px"> Thread Posts </h4> 
+        <table class="table table-striped" style="padding-left: 40px;">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Reply ID</th>
+              <th>Likes</th>
+              <th>Date</th>
+              <th>Username</th>
+              <th>Reply</th>      
+            </tr>
+          </thead>
                       
-        <tbody>
-          <?php 
-          //var_dump($posts);
-          foreach($posts as $post){
+          <tbody>
+            <?php 
+              //var_dump($posts);
+              foreach($posts as $post){
                 
-          echo "
-          <tr>
-            <td>{$post->getID()}</td>
-            <td>{$post->getRID()}</td>
-            <td>{$post->getLikes()}</td>
-            <td>{$post->getDate()}</td>
-            <td>{$post->getUsername()}</td>
-            <td>{$post->getReply()}</td>
-            <td>
-              <a class='btn btn-success' href='likes.php?id={$post->getRID()}'>Like</a>
-            </td>
-            
-          </tr>
-          ";
-          }
+                echo "
+                <tr>
+                  <td>{$post->getID()}</td>
+                  <td>{$post->getRID()}</td>
+                  <td>{$post->getLikes()}</td>
+                  <td>{$post->getDate()}</td>
+                  <td>{$post->getUsername()}</td>
+                  <td>{$post->getReply()}</td>
+                </tr>
+              ";
+              }
               //var_dump($id);
-            
-          ?>
-        </tbody>
-      </table>
-  </div>
+            ?>
+          </tbody>
+        </table>
+    </div>
 
 
-  <script>
-    Vue.createApp({
-      data() {
-        return {
-          replies: [] // array of post objects
-        }
-      },
-      created() { // created is a hook that executes as soon as Vue instance is created
-        axios.get('http://localhost/IS216/WAD2-G7T2/forum/replies_database/getReplies.php')
-      .then(response => {
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            replies: [] // array of post objects
+          }
+        },
+        created() { // created is a hook that executes as soon as Vue instance is created
+          axios.get('http://localhost/IS216/WAD2-G7T2/forum/replies_database/getReplies.php')
+        .then(response => {
                   // this gets the data, which is an array, and pass the data to Vue instance's posts property 
-        this.replies = response.data
-        console.log(response.data);
-                  
-      })
-      .catch(error => {
-        this.replies = [{ entry: 'There was an error: ' + error.message }]
-      })
-      }
-    }).mount('#app')
-  </script>
+          this.replies = response.data
+          console.log(response.data);            
+        })
+        .catch(error => {
+          this.replies = [{ entry: 'There was an error: ' + error.message }]
+        })
+        }
+      }).mount('#app')
+    </script>
 
     <!--<script src="https://unpkg.com/vue@next"></script>-->
-  <script src="forum.js"></script>
-  <script src="vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     
     
 </body>

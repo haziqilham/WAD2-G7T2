@@ -1,25 +1,17 @@
 <?php
 
-require_once 'common.php';
+//require_once 'common.php';
 
 class PostDAO {
 
     public function getAll() {
         // STEP 1
         $connMgr = new ConnectionManager();
-        $conn = $connMgr->connect();
-        $limit = 10;
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $start = ($page -1) * $limit;
-        
+        $conn = $connMgr->connect();        
         // STEP 2
         $sql = "SELECT
-                    id,
-                    date,
-                    username,
-                    threadName,
-                    content
-                FROM threads LIMIT $start, $limit"; // SELECT * FROM post; // This will also work
+                    sid, sname
+                FROM school"; // SELECT * FROM post; // This will also work
         $stmt = $conn->prepare($sql);
 
         // STEP 3
@@ -31,11 +23,42 @@ class PostDAO {
         while( $row = $stmt->fetch() ) {
             $posts[] =
                 new Post(
-                    $row['id'],
-                    $row['date'],
+                    $row['sid'],
+                    $row['sname']);
+        }
+
+        // STEP 5
+        $stmt = null;
+        $conn = null;
+
+        // STEP 6
+        return $posts;
+    }
+
+    public function getNotes() {
+        // STEP 1
+        $connMgr = new ConnectionManager();
+        $conn = $connMgr->connect();        
+        // STEP 2
+        $sql = "SELECT
+                    *
+                FROM items"; // SELECT * FROM post; // This will also work
+        $stmt = $conn->prepare($sql);
+
+        // STEP 3
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+        // STEP 4
+        $posts = []; // Indexed Array of Post objects
+        while( $row = $stmt->fetch() ) {
+            $posts[] =
+                new Post3(
+                    $row['nid'],
+                    $row['cid'],
                     $row['username'],
-                    $row['threadName'],
-                    $row['content']);
+                    $row['item'],
+                    $row['info']);
         }
 
         // STEP 5

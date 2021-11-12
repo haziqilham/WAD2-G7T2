@@ -1,22 +1,8 @@
-<?php
-    include 'conn.php';
-    // Pagination Pre-Sets
-    $limit = 10;
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $start = ($page-1) * $limit;
-    $result1 = $conn->query("SELECT count(id) AS id FROM threads ");
-    $threadCount = $result1->fetch_all(MYSQLI_ASSOC);
-    $total = $threadCount[0]['id'];
-    $pages = ceil($total / $limit);
-    $previous = $page - 1;
-    $next = $page + 1;
-?>
-
-<?php
-    // Database Connection
-    require_once './database/model/Post.php';
-    require_once './database/model/PostDAO.php';
-    require_once './database/model/ConnectionManager.php';
+<?php 
+//var_dump($_GET);
+    require_once './database/database/model/ConnectionManager.php';
+    require_once './database/database/model/Post.php';
+    require_once './database/database/model/PostDAO.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -42,7 +33,27 @@
    
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   
+
+    <script type="text/javascript">
+        function fetch_select(val)
+        {
+        $.ajax({
+        type: 'post',
+        url: 'getModule.php',
+        data: {
+        get_option:val
+        },
+        success: function (response) {
+            console.log(response);
+        document.getElementById("new_select").innerHTML=response; 
+        }
+        });
+        }
+
+    </script>
+
+    
+
     
     <!-- Favicon logo -->
     <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
@@ -116,6 +127,11 @@
                         <!-- TODO: ADD HREF ID TO Forum HERE! -->
                         <a class="nav-link" href="../forum/forum3.php">Forum</a>
                     </li>        
+
+                    <li class="nav-item">
+                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                        <a class="nav-link" href="./notes.php">Notes</a>
+                    </li>  
                 </ul>                
             </div>   
         </nav>
@@ -123,7 +139,7 @@
 
         <!-- Start of Forum Page layout  -->
         <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
-            <div class="col-12">Message Board</div>
+            <div class="col-12">Notes for <?php echo $_GET['mod']; ?></div>
             <!-- Page Trail -->
             <div class="col-auto" style="padding-right: 2px;">
                 <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
@@ -134,117 +150,58 @@
                 <p>></p>
             </div>
 
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-                <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
-                    <p>Forum</p>
-                </a>
-            </div>
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium">
+              <p>Notes</p>
+            </div>  
 
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0; display: none;" id="hide4">
-              <p>></p>
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
+                <p>></p>
             </div>
-
-            <div class="col-auto" style="padding-left: 2px; padding-right: 2px;">
-              <a href="./forum2.html" style="color: black; text-decoration: underline; font-size: medium;" id="forum">
-                  <p id="currentPosition"></p>
-              </a>
-            </div>   
+            
+            <div class="col-auto" style="padding-left: 2px; padding-right: 2px; text-decoration: underline; font-size: medium">
+              <p>
+                  <?php 
+                  $query = $_GET['mod'];
+                  echo $query
+                  ?>
+              </p>
+            </div>  
+            
         </div>
 
-        <!-- Button to add New Thread -->
-        <div class="row" style="padding-left:20px ; padding-top: 10px;">
-            <div class="col-auto">
-              <a href="add_thread.php">
-                <button class="btn btn-secondary btn-lg">New Thread</button>
-              </a>
-            </div> 
-        </div>
-
-        <!-- Table to display threads -->
         <div id="app" style="padding-left: 20px; padding-right:20px">    
           <h4 style="padding-top: 10px"> Thread Posts </h4> 
           <table class="table table-striped" style="padding-left: 40px;">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Date</th>
+                    <th>#</th>>
                     <th>Username</th>
-                    <th>Thread Name</th>
-                    <th>Content</th>
-                    <th>Reply</th>
+                    <th>File</th>
+                    <th>Information</th>
+                    
                 </tr>
             </thead>
                       
             <tbody>
                 <?php
-                $dao = new POSTDAO();
-                $posts = $dao->getAll();
-                foreach($posts as $post) {
-                    echo "
-                        <tr>
-                            <td>{$post->getID()}</td>
-                            <td>{$post->getDate()}</td>
-                            <td>{$post->getUsername()}</td>
-                            <td>
-                                <a href='replies.php?name={$post->getThreadName()}&id={$post->getID()}'>{$post->getThreadName()}</a>
-                            </td>
-                            <td>{$post->getContent()}</td>
-                            <td>
-                                <a class='btn btn-success' href='add_reply.php?id={$post->getThreadName()}&value={$post->getID()}'>Reply</a>
-                            </td>
-                        </tr>
-                    ";
+                    $dao = new POSTDAO();
+                    $posts = $dao->getNotes();
+                    foreach($posts as $post) {
+                        echo "
+                            <tr>
+                                <td>{$post->getNID()}</td>
+                                <td>{$post->getUsername()}</td>
+                                <td>
+                                    <a href='../../../B4-W10-M10-EPA-Enterprise-Process-Architecture-PF.pptx' download>{$post->getItem()}</a>
+                                
+                                </td>
+                                <td>{$post->getInfo()}</td>
+                            </tr>
+                        ";
                     //var_dump($post);
-                }
+                    }
                 ?>
             </tbody>
-                
-        <script>
-            Vue.createApp({
-                data() {
-                    return {
-                        threads: [] // array of post objects
-                    }
-                },
-                created() { // created is a hook that executes as soon as Vue instance is created
-                    axios.get('http://localhost/IS216/WAD2-G7T2/forum/database/getPosts.php')
-                    .then(response => {
-                        // this gets the data, which is an array, and pass the data to Vue instance's posts property
-                        this.threads = response.data
-                        
-                    })
-                    .catch(error => {
-                        this.threads = [{ entry: 'There was an error: ' + error.message }]
-                    })
-                }
-            }).mount('#app')
-        </script>
-
-
-        <!-- Pagination -->
-        <div style="padding-bottom: 20px">
-            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="forum3.php?page=<?= $previous; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo; Previous</span>
-                        </a>
-                    </li>
-                    <?php for($i =1; $i<= $pages; $i++) : ?>
-                    <li id="currentPage" class="page-item"><a  class="page-link" href="forum3.php?page=<?=$i;?>"><?=$i;?></a></li>
-                    <?php endfor; ?>
-                    <li class="page-item">
-                        <a class="page-link" href="forum3.php?page=<?= $next; ?>" aria-label="Next">
-                            <span aria-hidden="true">Next &raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-  
-
-        <script src="vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     </body>
 </html>
+
