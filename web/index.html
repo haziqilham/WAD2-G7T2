@@ -30,16 +30,15 @@
         $(document).ready(function () {
             $('#sendmessage').click(function (e) {
                 e.preventDefault()
-                $('#alertmessage').html('<div class="alert alert-success"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">×</button>Email Sent</div>');
+                $('#alertmessage').html('<br><div class="alert alert-success alert-dismissible fade show" role="alert">Email Sent<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button></div>');
             })
-        });
+        });     
 
     </script>
 
     <script>
         function weather() {
             var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
-            var data = "Feeling Good!"
             var city = "Singapore"
             var url = "https://api.openweathermap.org/data/2.5/weather"
             var imgurl = "https://openweathermap.org/img/wn/"
@@ -74,7 +73,7 @@
 
 <body data-spy="scroll" data-target="#top-navbar" onload="weather()" id='app'>
 
-
+   
     <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse justify-content-end">
@@ -172,7 +171,7 @@
         <div class="container">
             <div class="row" style="text-align: center;">
                 <div class="col-md">
-                    <!-- <div id="weather"></div>    -->
+                    
                 </div>
                 <div class="col-md"></div>
                 <div class="col-md-6" id="box">
@@ -181,7 +180,7 @@
                     <h1>
                         Welcome
                     </h1>
-                    <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is the
+                    <p>Need some help with your work? <br>Looking for books? <br>or just a place to unwind? <br>StudySite is the
                         place for you!</p>
 
 
@@ -207,9 +206,7 @@
                     <h1>
                         About StudySite
                     </h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aperiam nam, adipisci quam
-                        culpa error repellendus molestiae at officiis, amet cupiditate sint iste. Animi, quos.
-                        Consectetur tenetur molestias culpa illum. </p>
+                    <p> Here at StudySite we want to give you the best experience. We want to help students find the resources they need and provide a platform where they can destress. </p>
                 </div>
             </div>
 
@@ -222,10 +219,11 @@
             <h1>
                 Contact Us
             </h1>
-        </div>
-        <div class="container">
-            <div class="col-lg-8 mt-5 mt-lg-0 ">
-                <form method="POST" action="sendgrid.php">
+        <!-- </div> -->
+        
+        <!-- <div class="container">             -->
+            <div class="col-lg-12 mt-5 mt-lg-0 ">
+                <form method="POST" action="mailer.php">
                     <div class="contactdetail">
                         <h3>
                             Got Questions for us? Leave a message and we'll get right back to you
@@ -252,7 +250,7 @@
                         <div class="form-group">
                             <textarea class="form-control" name="message" id="message" placeholder="Message"  rows="8"></textarea>                         
                         </div>
-
+                        <br>
                         <div class="text-center">
                             <button class="btn btn-warning" type="submit" id="sendmessage">Send Message</button>
                         </div>

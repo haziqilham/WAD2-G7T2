@@ -24,4 +24,6 @@ echo "data inserted successfully";
 $stmt =null;
 $pdo = null;
 
+header("Location: ./marketplace.html");
+
 ?>
