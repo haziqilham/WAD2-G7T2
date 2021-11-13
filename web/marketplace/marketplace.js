@@ -5,7 +5,7 @@ const app = Vue.createApp({
             listName: '',
             price:0,
             description: '',
-            currId : 0
+            currId : null
         }
     },
     methods: {
@@ -16,26 +16,30 @@ const app = Vue.createApp({
             .then(response => {
                 this.allData = response.data;
                 console.log(this.allData.length)
-                
-                
-
+                console.log(this.currId)
                     // this.listname = response.data[x].listname
-             
                 })
                
-                
-    
             .catch(error => {
-                
             })
-
         },
 
-        counter(){
-            this.currID ++
+        storeId(event) {
+            this.currId = event.target.getAttribute('value')
             console.log(this.currId)
-        }
+            sessionStorage.setItem("id", this.currId)
+            location.href="viewlisting.html"
+        },
+
+        // retrieveId() {
+        //     this.currId = sessionStorage.getItem("id")
+        // }
+        
     },
+    beforeMount(){
+        this.currId = sessionStorage.getItem("id")
+    },
+
     created:function(){
         this.fetchAllData();
          
