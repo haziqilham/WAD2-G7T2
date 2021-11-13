@@ -41,6 +41,36 @@
 }
 
 
+
+.bg5 {
+    text-align: center;
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg5.jpg);
+    background-size: cover;
+}
+
+
+.bg6 {
+    text-align: center;
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg6.jpg);
+    background-size: cover;
+}
+
+.bg7 {
+    /* text-align: center; */
+    min-height:500px;
+    /* min-width: fit-content; */
+    color: honeydew;
+    background-image: url(../photos/bg7.jpg);
+    background-size: cover;
+}
+
+
 section {
     padding: 100px;
 }
