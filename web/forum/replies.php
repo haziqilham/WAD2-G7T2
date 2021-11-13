@@ -28,6 +28,8 @@
 
     <!-- Vue 3: development -->
     <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
    
     <!-- Axios -->
@@ -37,21 +39,43 @@
     <!-- Favicon logo -->
     <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
 
-    <script>
-      $.ajax({
-        type: "POST",
-        url: "likes.php",
-        data: { name: $("select[name='players']").val()},
-        success:function( msg ) {
-         alert( "Data Saved: " + msg );
+
+    <!-- JS script for Likes Button -->
+    <script type="text/javascript">
+      function fetch_select(val) {
+        $.ajax({
+        type: 'post',
+        url: 'getLikes.php',
+        data: {
+        get_option:val
+        },
+        success: function (response) {
+            console.log(response);
+        document.getElementById(val).innerHTML=response; 
         }
-       });
+        });
+        
+      }
+    </script>
+
+    <!-- JS script for Dislike Button -->
+    <script type="text/javascript">
+      function fetch_select_two(val) {
+        $.ajax({
+        type: 'post',
+        url: 'getDislikes.php',
+        data: {
+        get_option:val
+        },
+        success: function (response) {
+            console.log(response);
+        document.getElementById(val).innerHTML=response; 
+        }
+        });
+        
+      }
     </script>
  
-
-
-    
-
 </head>
 <body>
 <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
@@ -194,10 +218,12 @@
             <tr>
               <th>ID</th>
               <th>Reply ID</th>
+              <th>Likes Count</th>
               <th>Date</th>
               <th>Username</th>
               <th>Reply</th>  
               <th></th>  
+              <th></th>
             </tr>
           </thead>
                       
@@ -210,11 +236,15 @@
                 <tr>
                   <td>{$post->getID()}</td>
                   <td>{$post->getRID()}</td>
+                  <td id='{$post->getRID()}'>{$post->getLikes()}</td>
                   <td>{$post->getDate()}</td>
                   <td>{$post->getUsername()}</td>
                   <td>{$post->getReply()}</td>
                   <td>
-                    <button class='btn btn-success' onclick='doThis({$post->getLikes()})'>Like</button>
+                    <button class='btn btn-success' onclick='fetch_select({$post->getRID()})'>Like</button>
+                  </td>
+                  <td>
+                    <button class='btn btn-danger' onclick='fetch_select_two({$post->getRID()})'>Dislike</button>
                   </td>
                 </tr>
               ";
@@ -249,17 +279,7 @@
       }).mount('#app')
     </script>
 
-    <script>
-      function doThis($id) {
-        //console.log($id)
-        console.log($id)
-        $id = Number($id);
-        $id = $id + 1;
-        console.log($id)
-        document.getElementById("checking").innerHTML = $id;
-        
-      }
-    </script>
+  
 
     <!--<script src="https://unpkg.com/vue@next"></script>-->
     <script src="vue.js"></script>
