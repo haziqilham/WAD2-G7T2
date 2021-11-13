@@ -50,6 +50,22 @@
 
     <script>
         function weather() {
+            weather_states = {
+                801:"./photos/icons/cloudy-day-1.svg",
+                803: "./photos/icons/cloudy.svg",
+                800: "./photos/icons/day.svg",
+                500:"./photos/icons/rainy-3.svg",
+                501:"./photos/icons/rainy-3.svg",
+                502:"./photos/icons/rainy-4.svg",
+                503:"./photos/icons/rainy-4.svg",
+                200: "./photos/icons/thunder.svg",
+                201: "./photos/icons/thunder.svg",
+                202: "./photos/icons/thunder.svg"            
+                
+            };
+            // console.log(801 in weather_states)
+            // console.log(weather_states[801])
+
             var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
             var city = "Singapore"
             var url = "https://api.openweathermap.org/data/2.5/weather"
@@ -66,10 +82,25 @@
                     console.log(response)
                     console.log(response.data.weather[0].description)
                     console.log(response.data.weather[0].icon)
+                    console.log(response.data.weather[0].id)
+                    var weatherID = (response.data.weather[0].id)
+                
+                   
+                    document.getElementById("weather").innerHTML = response.data.weather[0].description.toUpperCase();
+                     // adds animated icon if avail in current mapping 
+                    if(weatherID in weather_states){
+                        var animatedURL = (weather_states[weatherID])
+                        console.log(animatedURL)
+                        document.getElementById("image").src = weather_states[weatherID];
 
-                    document.getElementById("weather").innerHTML = response.data.weather[0].description;
-                    var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
-                    document.getElementById("image").src = imgurl3;
+                        console.log(String(weatherID));
+                    }
+                    // uses default openapiweathermap if does not exist
+                    else{
+                        var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
+                        document.getElementById("image").src = imgurl3;
+                    }
+                    
                 })
                 .catch(error => {
                     console.log(error.message)
@@ -95,6 +126,7 @@
                     </a>
                 </div>
 
+
                 <div class="collapse navbar-collapse justify-content-end" v-if='user'>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -112,11 +144,19 @@
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{user.first_name}}</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" >
+                            {{user.first_name}}
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href='../login page/profile.html'>Profile</a></li>
+                                <li><button v-on:click='doLogout' class="btn">Logout</button></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <button v-on:click='doLogout' class="btn btn-info">Logout</button>
+                            
                         </li>
                     </ul>
                 </div>
@@ -175,10 +215,9 @@
         <div id='app'>
 
         </div>
-        <section class="bg4" id="home">
+        <section class="bg4" id="home">               
             <div class="container">
-                <div class="row" style="text-align: center;">
-                   
+                <div class="row" style="text-align: center;">                   
                     <div class="col-md"></div>
                     <div class="col-md-6" id="box">
 
@@ -186,7 +225,9 @@
                             <h1>
                                 Welcome {{user.first_name}}
                             </h1>
-                            <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is
+                            <p>Need some help with your work? <br>
+                                Looking for books?<br>
+                                 or just a place to unwind?<br> StudySite is
                                 the
                                 place for you!</p>
                         </div>
@@ -195,14 +236,18 @@
                             <h1>
                                 Welcome
                             </h1>
-                            <p>Need some help with your work? Looking for books? or just a place to unwind? StudySite is
+                            <br>
+                          
+                            <h5 class="animate">Need some help with your work? <br>
+                                Looking for books?<br>
+                                 or just a place to unwind?<br> StudySite is
                                 the
-                                place for you!</p>
+                                place for you!</h5>
                         </div>
 
 
-                        <h3>Today's weather is: </h3>
-                        <img id="image" src="">
+                        <h3>Weather of the Day: </h3>
+                        <img id="image" src="" width="200" height="200">
                         <h1>
                             <div id="weather"></div>
                         </h1>
@@ -334,7 +379,7 @@
                             </div>
                             <br>
                             <div class="text-center">
-                                <button class="btn btn-warning" type="submit" id="sendmessage">Send Message</button>
+                                <button class="btn btn-warning btn-lg" type="submit" id="sendmessage">Send Message</button>
                             </div>
 
                         </div>
