@@ -23,14 +23,23 @@ const app = Vue.createApp({
             this.user = null;
             console.log('logout')
             sessionStorage.removeItem('user')
+            window.location.href = '../web/index.html';
         },
+
+        doProfileUpdateSuccess(userInfo){
+            console.log('here')
+            console.log(sessionStorage.user)
+            this.user = userInfo;
+            sessionStorage.removeItem('user')
+            sessionStorage.setItem("user",  JSON.stringify(this.user))
+
+        }
+
     }, // methods
     mounted(){
         if (sessionStorage.user){
             var user_info = JSON.parse(sessionStorage.user)
-            console.log((user_info))
             this.user = {'email': user_info.userid, 'first_name':user_info.first_name, 'last_name':user_info.last_name}
-            console.log(this.user)
         }
     }
 });
@@ -215,6 +224,110 @@ app.component('my-register', {
 
 
 }
-))
+),
+
+
+app.component('profile-update', {
+    // props : ['prop1', 'prop2'],
+
+    emits: ['profileupdate'],
+
+    template: `<div class="row" style="margin-top: 100px;">
+                    <h2>Enter New Particulars</h2>
+                    <div class="row mt-2">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="first_name" v-model='first_name' required>
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="last_name"  v-model='last_name' required>
+                    </div>
+
+                    <h6 style='margin-top:5px;'>Note: You will need to login again to view the updated changes</h6>
+                    <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button" v-on:click='doProfileUpdate'>Save
+                            Profile</button></div>
+                </div>`,
+
+    data() {
+        return {
+            email: '',
+            first_name: '',
+            last_name: '',
+            message: ''
+        }
+    },
+
+    methods: {
+        doProfileUpdate() {
+            var user_info = JSON.parse(sessionStorage.user)
+            axios
+                .post("../services/process_update_profile.php", {
+                    email: user_info.userid,
+                    first_name: this.first_name,
+                    last_name: this.last_name
+                })
+                .then((response) => {
+                    let result = response.data
+                    console.log(result)
+
+                    if (result.status) {
+                        this.first_name = "";
+                        this.last_name = "";
+                        this.$emit("profileupdate", {
+                            email: this.email,
+                            first_name: result["first_name"],
+                            last_name: result['last_name'],
+                            reg_status: result['Successfully Updated Profile']
+                        })
+                    }
+
+                    else {
+                        this.message = 'Failed'
+                    }
+                })
+                .catch((error) => {
+                    this.message = "Error"
+                    console.log(error)
+                })
+
+        },
+        // doPasswordUpdate(){
+        //     axios
+        //     .post("../services/process_update_password.php", {
+        //         email: this.email,
+        //         old_password: this.old_pwd,
+        //         new_password: this.new_pwd,
+        //         confirm_password: this.confirm_pwd,
+
+        //     })
+        //     .then((response) => {
+        //         // console.log(response)
+        //         let result = response.data
+        //         console.log(result)
+
+        //         if (result.status) {
+        //             this.$emit("profile_update", {
+        //                 email: this.email,
+        //                 first_name: result["first_name"],
+        //                 last_name: result['last_name'],
+        //                 reg_status: result['Successfully Updated Password']
+        //             })
+        //         }
+
+        //         else {
+        //             this.message = 'Failed'
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         this.message = "Error"
+        //     })
+        // }
+
+    },
+
+
+
+}
+)
+
+)
 
 const vm = app.mount("#app");
