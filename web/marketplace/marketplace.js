@@ -1,12 +1,11 @@
-
-
-
-
 const app = Vue.createApp({
     data() {
         return {
-            allData:{}
-            //name:value pairs
+            allData:{},
+            listName: '',
+            price:0,
+            description: '',
+            currId : 0
         }
     },
     methods: {
@@ -16,28 +15,39 @@ const app = Vue.createApp({
             
             .then(response => {
                 this.allData = response.data;
-                console.log(typeof this.allData)
+                console.log(this.allData.length)
                 
+                
+
+                    // this.listname = response.data[x].listname
+             
+                })
                
-               
                 
-                
-            })
+    
             .catch(error => {
                 
             })
+
+        },
+
+        counter(){
+            this.currID ++
+            console.log(this.currId)
         }
     },
     created:function(){
         this.fetchAllData();
-        
-        
-        
-        
+         
     }
 })
 
 const vm = app.mount('#app')
+
+
+
+
+
 
 
 
