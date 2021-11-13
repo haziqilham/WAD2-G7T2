@@ -61,7 +61,7 @@
     <title>StudySite</title>
 
     </head>
-    <body data-spy="scroll" data-target="#navbar">
+    <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse justify-content-end">
@@ -114,7 +114,7 @@
                     
                     <li class="nav-item">
                         <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="#market">Marketplace</a>
+                        <a class="nav-link" href="../marketplace/marketplace.html">Marketplace</a>
                     </li> 
                     
 
@@ -173,7 +173,7 @@
 
         <div id="app" style="padding-left: 20px; padding-right:20px">    
           <!--<h4 style="padding-top: 10px">   </h4> -->
-          <table class="table table-striped" style="padding-left: 40px;">
+          <table class="table table-striped table-secondary table-hover col-xs-3" style="padding-left: 40px;">
             <thead>
                 <tr>
                     <th>#</th>

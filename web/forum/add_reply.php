@@ -31,7 +31,7 @@
             $thread = $_POST['name'];
         }
     ?>
-    <body data-spy="scroll" data-target="#navbar">
+    <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse justify-content-end">

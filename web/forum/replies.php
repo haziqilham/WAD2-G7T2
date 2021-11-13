@@ -54,7 +54,7 @@
 
 </head>
 <body>
-<body data-spy="scroll" data-target="#navbar">
+<body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
   <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse justify-content-end">
@@ -189,7 +189,7 @@
 
     <div id="app" style="padding-left: 20px; padding-right:20px">    
       <h4 style="padding-top: 10px"> Thread Posts </h4> 
-        <table class="table table-striped" style="padding-left: 40px;">
+        <table class="table table-striped table-secondary table-hover col-xs-3" style="padding-left: 40px;">
           <thead>
             <tr>
               <th>ID</th>

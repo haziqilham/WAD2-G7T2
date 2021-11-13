@@ -27,7 +27,7 @@
 
    
     </head>
-    <body data-spy="scroll" data-target="#navbar">
+    <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
 
@@ -83,7 +83,7 @@
                 <ul class="navbar-nav m-auto">            
                     <li class="nav-item">
                     <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="#market">Marketplace</a>
+                        <a class="nav-link" href="../marketplace/marketplace.html">Marketplace</a>
                     </li> 
             
                     <li class="nav-item">
