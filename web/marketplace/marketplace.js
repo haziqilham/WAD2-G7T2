@@ -17,6 +17,7 @@ const app = Vue.createApp({
                 this.allData = response.data;
                 console.log(this.allData.length)
                 console.log(this.currId)
+                
                     // this.listname = response.data[x].listname
                 })
                
@@ -26,14 +27,12 @@ const app = Vue.createApp({
 
         storeId(event) {
             this.currId = event.target.getAttribute('value')
-            console.log(this.currId)
+            // console.log(this.currId)
             sessionStorage.setItem("id", this.currId)
             location.href="viewlisting.html"
         },
 
-        // retrieveId() {
-        //     this.currId = sessionStorage.getItem("id")
-        // }
+       
         
     },
     beforeMount(){
