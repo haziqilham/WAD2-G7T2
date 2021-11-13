@@ -50,6 +50,22 @@
 
     <script>
         function weather() {
+            weather_states = {
+                801:"./photos/icons/cloudy-day-1.svg",
+                803: "./photos/icons/cloudy.svg",
+                800: "./photos/icons/day.svg",
+                500:"./photos/icons/rainy-3.svg",
+                501:"./photos/icons/rainy-3.svg",
+                502:"./photos/icons/rainy-4.svg",
+                503:"./photos/icons/rainy-4.svg",
+                200: "./photos/icons/thunder.svg",
+                201: "./photos/icons/thunder.svg",
+                202: "./photos/icons/thunder.svg"            
+                
+            };
+            // console.log(801 in weather_states)
+            // console.log(weather_states[801])
+
             var apikey = "d17573f39372d2a5b3bfef1f86c618f7"
             var city = "Singapore"
             var url = "https://api.openweathermap.org/data/2.5/weather"
@@ -66,10 +82,24 @@
                     console.log(response)
                     console.log(response.data.weather[0].description)
                     console.log(response.data.weather[0].icon)
-
+                    console.log(response.data.weather[0].id)
+                    var weatherID = (response.data.weather[0].id)
+                
+                    // adds animated icon if avail in current mapping 
                     document.getElementById("weather").innerHTML = response.data.weather[0].description;
-                    var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
-                    document.getElementById("image").src = imgurl3;
+                    if(weatherID in weather_states){
+                        var animatedURL = (weather_states[weatherID])
+                        console.log(animatedURL)
+                        document.getElementById("image").src = weather_states[weatherID];
+
+                        console.log(String(weatherID));
+                    }
+                    // uses default openapiweathermap if does not exist
+                    else{
+                        var imgurl3 = imgurl + response.data.weather[0].icon + imgurl2;
+                        document.getElementById("image").src = imgurl3;
+                    }
+                    
                 })
                 .catch(error => {
                     console.log(error.message)
@@ -202,7 +232,7 @@
 
 
                         <h3>Today's weather is: </h3>
-                        <img id="image" src="">
+                        <img id="image" src="" width="200" height="200">
                         <h1>
                             <div id="weather"></div>
                         </h1>
