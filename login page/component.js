@@ -29,7 +29,8 @@ const app = Vue.createApp({
         if (sessionStorage.user){
             var user_info = JSON.parse(sessionStorage.user)
             console.log((user_info))
-            this.user = {'email': user_info.email, 'first_name':user_info.first_name, 'last_name':user_info.last_name}
+            this.user = {'email': user_info.userid, 'first_name':user_info.first_name, 'last_name':user_info.last_name}
+            console.log(this.user)
         }
     }
 });
@@ -40,34 +41,33 @@ app.component('my-login', {
 
     emits: ['login'],
 
-    template: `<div class="container mb-3">
+    template: `<div class="container mb-3 ">
                 <div>
                     <div class="row" style="margin-top: 40px;">
                         <div class="col-8" style="text-align: left;">
                             <h4>Welcome to StudySite! Please login.</h4>
                         </div>
                         <div class="col-4" style="text-align: right;">
-                            <h6 style="font-size: 12px;" class="text-right">New member? <a href="register.html">Register</a> here.</h6>
+                            <h6 style="font-size: 14px;" class="text-right">New member? <a href="register.html">Register</a> here.</h6>
                         </div>
                     </div>
                     <form onsubmit="return false;">
-                    <div class="container bg-light" style="padding: 10px;">
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="student@scis.smu.edu.sg" v-model='userid' required>
-                                <div id="emailHelp" class="form-text">Please input a valid student email address!</div>
-                            </div>
+                        <div class="container bg-light" style="padding: 10px;">
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="student@scis.smu.edu.sg" v-model='userid' required>
+                                    <div id="emailHelp" class="form-text">Please input a valid student email address!</div>
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" v-model='pwd'>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" v-model='pwd'>
+                                </div>
+                                <hr>
+                                <button v-on:click='doLogin' class="btn btn-dark" style="height:10;width:200px; margin:auto;">Login</button>
                             </div>
-                            <hr>
-
-                            <button v-on:click='doLogin' class="btn btn-info">Login</button>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>`,
@@ -141,22 +141,26 @@ app.component('my-register', {
                                 <label for="last_name" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" placeholder="Tan" v-model='last_name' required>
                             </div>
-                        </div>
 
-                        <div class="mb-3">
+                            <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" v-model='pwd' required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="confirm_password" v-model='confirm_pwd' required>
+                            </div>
+
+                            <h6 class="mb-3" style="font-size: 10px;">By clicking "SIGN UP", I agree to all the relevant terms and conditions.</h6>
+                            <hr>
+                            <button v-on:click='doRegister' class="btn btn-dark" style="height:10;width:200px; margin:auto;">SIGN UP</button>
+                            </form>
+
+
                         </div>
 
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" name="confirm_password" v-model='confirm_pwd' required>
-                        </div>
 
-                        <h6 class="mb-3" style="font-size: 10px;">By clicking "SIGN UP", I agree to all the relevant terms and conditions.</h6>
-                        <hr>
-                        <button v-on:click='doRegister' class="btn btn-info">SIGN UP</button>
-                        </form>
                     </div>
                 </div>`,
 
