@@ -40,18 +40,16 @@ app.component('my-login', {
 
     emits: ['login'],
 
-    template: `<div class="container mb-3">
+    template: `<div class="container mb-3 col-md-8">
                 <div>
                     <div class="row" style="margin-top: 40px;">
                         <div class="col-8" style="text-align: left;">
                             <h4>Welcome to StudySite! Please login.</h4>
                         </div>
-                        <div class="col-4" style="text-align: right;">
-                            <h6 style="font-size: 12px;" class="text-right">New member? <a href="register.html">Register</a> here.</h6>
-                        </div>
+                        
                     </div>
                     <form onsubmit="return false;">
-                    <div class="container bg-light" style="padding: 10px;">
+                    <div class="container bg-light rounded" style="padding: 10px;">
                         <div class="row" style="margin-top: 10px;">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
@@ -63,10 +61,15 @@ app.component('my-login', {
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" name="password" v-model='pwd'>
                             </div>
-                            <hr>
-
-                            <button v-on:click='doLogin' class="btn btn-info">Login</button>
+                            <div class="col-4" style="text-align: left;">
+                            <h6 style="font-size: 12px;" class="text-right">New member? <a href="register.html">Register</a> here.</h6>
                         </div>
+                            <hr>
+                            
+
+                            
+                        </div>
+                        <button v-on:click='doLogin' class="btn btn-info btn-lg col-4">Login</button>
                     </div>
                     </form>
                 </div>
