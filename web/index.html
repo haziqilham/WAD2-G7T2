@@ -85,8 +85,9 @@
                     console.log(response.data.weather[0].id)
                     var weatherID = (response.data.weather[0].id)
                 
-                    // adds animated icon if avail in current mapping 
-                    document.getElementById("weather").innerHTML = response.data.weather[0].description;
+                   
+                    document.getElementById("weather").innerHTML = response.data.weather[0].description.toUpperCase();
+                     // adds animated icon if avail in current mapping 
                     if(weatherID in weather_states){
                         var animatedURL = (weather_states[weatherID])
                         console.log(animatedURL)
@@ -231,7 +232,7 @@
                         </div>
 
 
-                        <h3>Today's weather is: </h3>
+                        <h3>Weather of the Day: </h3>
                         <img id="image" src="" width="200" height="200">
                         <h1>
                             <div id="weather"></div>
