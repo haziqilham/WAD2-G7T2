@@ -1,3 +1,4 @@
+
 const app = Vue.createApp({
     data() {
         return {
@@ -7,30 +8,34 @@ const app = Vue.createApp({
     methods: {
         // TODO doLoginSuccess(...)
         doLoginSuccess(userInfo) {
-            // console.log(userInfo)
             this.user = userInfo;
             if (this.user){
+                sessionStorage.setItem("user",  JSON.stringify(this.user))
                 window.location.href = '../web/index.html';
             }
         },
         doRegisterSuccess(userInfo) {
-            // console.log(userInfo)
             this.user = userInfo;
         },
 
         // event handler for logout button
         doLogout() {
             this.user = null;
+            console.log('logout')
+            sessionStorage.removeItem('user')
         },
     }, // methods
+    mounted(){
+        if (sessionStorage.user){
+            console.log(sessionStorage)
+            this.user = {'email': sessionStorage.email, 'first_name':sessionStorage.first_name, 'last_name':sessionStorage.last_name}
+        }
+    }
 });
 
-/**
- * TODO: component "my-login"
- */
 
 app.component('my-login', {
-    // props : ['prop1', 'prop2'],
+    // props : ['user'],
 
     emits: ['login'],
 
@@ -55,7 +60,7 @@ app.component('my-login', {
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" v-model='pwd' required>
+                                <input type="password" class="form-control" name="password" v-model='pwd'>
                             </div>
                             <hr>
 
@@ -90,8 +95,9 @@ app.component('my-login', {
                         this.pwd = "";
                         this.$emit("login", {
                             userid: this.userid,
-                            name: result["id_name"],
-                            first_name: result['first_name']
+                            first_name: result['first_name'],
+                            last_name: result['last_name']
+
                         })
                     }
 

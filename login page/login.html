@@ -18,6 +18,8 @@
 
     <!-- Vue 3 -->
     <script src='https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.global.js'></script>
+
+
     <!-- Vue 3: production version, optimized for size and speed -->
     <!-- <script src='https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.global.prod.js'></script> -->
 
@@ -26,15 +28,11 @@
 <body>
 
     <div id='app' class="container text-center" style="width: 60%;">
-
-        <div class="row p-1" v-if='user === null'>
+        <div class="row p-1">
             <div class="col-sm">
                 <my-login @login='doLoginSuccess'></my-login>
             </div>
         </div>
-
-        
-
     </div>
     
     
