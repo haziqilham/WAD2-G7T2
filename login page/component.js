@@ -27,8 +27,9 @@ const app = Vue.createApp({
     }, // methods
     mounted(){
         if (sessionStorage.user){
-            console.log(sessionStorage)
-            this.user = {'email': sessionStorage.email, 'first_name':sessionStorage.first_name, 'last_name':sessionStorage.last_name}
+            var user_info = JSON.parse(sessionStorage.user)
+            console.log((user_info))
+            this.user = {'email': user_info.email, 'first_name':user_info.first_name, 'last_name':user_info.last_name}
         }
     }
 });
