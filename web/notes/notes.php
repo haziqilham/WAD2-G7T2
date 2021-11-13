@@ -1,7 +1,6 @@
 <?php
 session_start();
 $connect = mysqli_connect("localhost", "root", "root", "notes");
-
 ?>
 
 <!DOCTYPE html>
@@ -50,8 +49,6 @@ $connect = mysqli_connect("localhost", "root", "root", "notes");
         }
 
     </script>
-
-    
 
     
     <!-- Favicon logo -->
@@ -155,9 +152,9 @@ $connect = mysqli_connect("localhost", "root", "root", "notes");
         </div>
 
         <!-- Button to add New Thread -->
-        <div id="select_box">
-          <form action="getNotes.php" method="get">
-              <select onchange="fetch_select(this.value);">
+        <div class="container" id="select_box" style="padding-left: 20px">
+                <form class="form-horizontal" action="getNotes.php" method="get">
+                    <select class="form-control" onchange="fetch_select(this.value);">
                     <option>Select School</option>
                     <?php 
                         $sql = mysqli_query($connect, "SELECT * FROM school");
@@ -171,18 +168,22 @@ $connect = mysqli_connect("localhost", "root", "root", "notes");
                         } 
                     ?>
                 </select>
-
-                <select id="new_select" name="mod">
+                <br>
+                <select class="form-control" id="new_select" placeholder="Select Module" name="mod">
                     <option>Select Module</option>
                 </select>
-                <input class="btn btn-primary" type="submit" value="Submit">
+                <br>
+                <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Search">
+                </div>
+                
                 
             </form>
             
                     
         </div>
 
-    </body>
+        
    
 </html>
 

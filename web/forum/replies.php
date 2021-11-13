@@ -37,6 +37,21 @@
     <!-- Favicon logo -->
     <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
 
+    <script>
+      $.ajax({
+        type: "POST",
+        url: "likes.php",
+        data: { name: $("select[name='players']").val()},
+        success:function( msg ) {
+         alert( "Data Saved: " + msg );
+        }
+       });
+    </script>
+ 
+
+
+    
+
 </head>
 <body>
 <body data-spy="scroll" data-target="#navbar">
@@ -107,6 +122,10 @@
                   <!-- TODO: ADD HREF ID TO Forum HERE! -->
                   <a class="nav-link" href="../forum/forum3.php">Forum</a>
               </li>        
+              <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                    <a class="nav-link" href="../notes/notes.php">Notes</a>
+                </li>
           </ul>                
       </div>   
     </nav>
@@ -175,10 +194,10 @@
             <tr>
               <th>ID</th>
               <th>Reply ID</th>
-              <th>Likes</th>
               <th>Date</th>
               <th>Username</th>
-              <th>Reply</th>      
+              <th>Reply</th>  
+              <th></th>  
             </tr>
           </thead>
                       
@@ -191,15 +210,19 @@
                 <tr>
                   <td>{$post->getID()}</td>
                   <td>{$post->getRID()}</td>
-                  <td>{$post->getLikes()}</td>
                   <td>{$post->getDate()}</td>
                   <td>{$post->getUsername()}</td>
                   <td>{$post->getReply()}</td>
+                  <td>
+                    <button class='btn btn-success' onclick='doThis({$post->getLikes()})'>Like</button>
+                  </td>
                 </tr>
               ";
               }
               //var_dump($id);
+              
             ?>
+
           </tbody>
         </table>
     </div>
@@ -224,6 +247,18 @@
         })
         }
       }).mount('#app')
+    </script>
+
+    <script>
+      function doThis($id) {
+        //console.log($id)
+        console.log($id)
+        $id = Number($id);
+        $id = $id + 1;
+        console.log($id)
+        document.getElementById("checking").innerHTML = $id;
+        
+      }
     </script>
 
     <!--<script src="https://unpkg.com/vue@next"></script>-->

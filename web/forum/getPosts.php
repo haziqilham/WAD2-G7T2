@@ -1,5 +1,6 @@
 <?php
-    require_once 'common.php';
+    //require_once 'common.php';
+    require_once '../forum/database/common.php';
     $dao = new PostDAO();
     $posts = $dao->getAll(); // Get an Indexed Array of Post objects
 

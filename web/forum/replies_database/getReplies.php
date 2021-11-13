@@ -2,7 +2,7 @@
 
 require_once 'common.php';
 $dao = new PostDAO();
-var_dump($_POST);
+//var_dump($_POST);
 
 $posts = $dao->get($id); // Get an Indexed Array of Post objects
 

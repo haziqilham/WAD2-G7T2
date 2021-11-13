@@ -151,7 +151,9 @@
             </div>
 
             <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium">
-              <p>Notes</p>
+                <a href="../notes/notes.php" style="color: black; text-decoration:none; font-size: medium">
+                    <p>Notes</p>
+                </a>
             </div>  
 
             <div class="col-auto" style="padding-left: 2px; padding-right: 2px; font-size: medium; margin-left: 0;">
@@ -170,11 +172,11 @@
         </div>
 
         <div id="app" style="padding-left: 20px; padding-right:20px">    
-          <h4 style="padding-top: 10px"> Thread Posts </h4> 
+          <!--<h4 style="padding-top: 10px">   </h4> -->
           <table class="table table-striped" style="padding-left: 40px;">
             <thead>
                 <tr>
-                    <th>#</th>>
+                    <th>#</th>
                     <th>Username</th>
                     <th>File</th>
                     <th>Information</th>
@@ -185,14 +187,14 @@
             <tbody>
                 <?php
                     $dao = new POSTDAO();
-                    $posts = $dao->getNotes();
+                    $posts = $dao->getNotes($_GET['mod']);
                     foreach($posts as $post) {
                         echo "
                             <tr>
                                 <td>{$post->getNID()}</td>
                                 <td>{$post->getUsername()}</td>
                                 <td>
-                                    <a href='../../../B4-W10-M10-EPA-Enterprise-Process-Architecture-PF.pptx' download>{$post->getItem()}</a>
+                                    <a href='../notes/B4-W10-M10-EPA-Enterprise-Process-Architecture-PF.pptx'>{$post->getItem()}</a>
                                 
                                 </td>
                                 <td>{$post->getInfo()}</td>

@@ -3,6 +3,7 @@
     // Pagination Pre-Sets
     $limit = 10;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    //var_dump($page);
     $start = ($page-1) * $limit;
     $result1 = $conn->query("SELECT count(id) AS id FROM threads ");
     $threadCount = $result1->fetch_all(MYSQLI_ASSOC);
@@ -42,6 +43,7 @@
    
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
    
     
     <!-- Favicon logo -->
@@ -116,6 +118,11 @@
                         <!-- TODO: ADD HREF ID TO Forum HERE! -->
                         <a class="nav-link" href="../forum/forum3.php">Forum</a>
                     </li>        
+
+                    <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                    <a class="nav-link" href="../notes/notes.php">Notes</a>
+                </li>
                 </ul>                
             </div>   
         </nav>
@@ -177,40 +184,40 @@
                       
             <tbody>
                 <?php
-                $dao = new POSTDAO();
-                $posts = $dao->getAll();
-                foreach($posts as $post) {
-                    echo "
-                        <tr>
-                            <td>{$post->getID()}</td>
-                            <td>{$post->getDate()}</td>
-                            <td>{$post->getUsername()}</td>
-                            <td>
-                                <a href='replies.php?name={$post->getThreadName()}&id={$post->getID()}'>{$post->getThreadName()}</a>
-                            </td>
-                            <td>{$post->getContent()}</td>
-                            <td>
-                                <a class='btn btn-success' href='add_reply.php?id={$post->getThreadName()}&value={$post->getID()}'>Reply</a>
-                            </td>
-                        </tr>
-                    ";
-                    //var_dump($post);
-                }
-                ?>
-            </tbody>
+                    $dao = new POSTDAO();
+                    $posts = $dao->getAll();
+                    foreach($posts as $post) {
+                        echo "
+                            <tr>
+                                <td>{$post->getID()}</td>
+                                <td>{$post->getDate()}</td>
+                                <td>{$post->getUsername()}</td>
+                                <td>
+                                    <a href='replies.php?name={$post->getThreadName()}&id={$post->getID()}'>{$post->getThreadName()}</a>
+                                </td>
+                                <td>{$post->getContent()}</td>
+                                <td>
+                                    <a class='btn btn-success' href='add_reply.php?id={$post->getThreadName()}&value={$post->getID()}'>Reply</a>
+                                </td>
+                            </tr>
+                        ";  
+                    }
+                    ?>
+            </tbody> 
                 
-        <script>
+            <script>
             Vue.createApp({
                 data() {
                     return {
                         threads: [] // array of post objects
                     }
-                },
+                },           
                 created() { // created is a hook that executes as soon as Vue instance is created
-                    axios.get('http://localhost/IS216/WAD2-G7T2/forum/database/getPosts.php')
+                    axios.get('http://localhost/IS216/WAD2-G7T2/web/forum/getPosts.php')
                     .then(response => {
                         // this gets the data, which is an array, and pass the data to Vue instance's posts property
                         this.threads = response.data
+                        console.log('This is right')
                         
                     })
                     .catch(error => {
@@ -241,7 +248,7 @@
                 </ul>
             </nav>
         </div>
-  
+
 
         <script src="vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>        

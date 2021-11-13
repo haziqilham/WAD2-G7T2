@@ -98,7 +98,11 @@
                     <li class="nav-item">
                         <!-- TODO: ADD HREF ID TO Forum HERE! -->
                         <a class="nav-link" href="../forum/forum3.php">Forum</a>
-                    </li>        
+                    </li>       
+                    <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
+                    <a class="nav-link" href="./notes/notes.php">Notes</a>
+                </li> 
                 </ul>                
             </div>   
         </nav>

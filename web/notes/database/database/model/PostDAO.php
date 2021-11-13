@@ -35,14 +35,16 @@ class PostDAO {
         return $posts;
     }
 
-    public function getNotes() {
+    public function getNotes($cid) {
         // STEP 1
+        //var_dump($cid);
+        //echo $cid;
         $connMgr = new ConnectionManager();
         $conn = $connMgr->connect();        
         // STEP 2
         $sql = "SELECT
                     *
-                FROM items"; // SELECT * FROM post; // This will also work
+                FROM items where cid = '$cid'"; // SELECT * FROM post; // This will also work
         $stmt = $conn->prepare($sql);
 
         // STEP 3
