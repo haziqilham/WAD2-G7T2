@@ -32,7 +32,11 @@ const app = Vue.createApp({
             this.user = userInfo;
             sessionStorage.removeItem('user')
             sessionStorage.setItem("user",  JSON.stringify(this.user))
-
+        },
+        doPassworddUpdateSuccess(userInfo){
+            console.log('Success')
+            this.user = userInfo;
+            console.log(this.user)
         }
 
     }, // methods
@@ -289,37 +293,86 @@ app.component('profile-update', {
                 })
 
         },
-        // doPasswordUpdate(){
-        //     axios
-        //     .post("../services/process_update_password.php", {
-        //         email: this.email,
-        //         old_password: this.old_pwd,
-        //         new_password: this.new_pwd,
-        //         confirm_password: this.confirm_pwd,
 
-        //     })
-        //     .then((response) => {
-        //         // console.log(response)
-        //         let result = response.data
-        //         console.log(result)
 
-        //         if (result.status) {
-        //             this.$emit("profile_update", {
-        //                 email: this.email,
-        //                 first_name: result["first_name"],
-        //                 last_name: result['last_name'],
-        //                 reg_status: result['Successfully Updated Password']
-        //             })
-        //         }
+    },
 
-        //         else {
-        //             this.message = 'Failed'
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         this.message = "Error"
-        //     })
-        // }
+
+
+}
+),
+app.component('password-update', {
+    // props : ['prop1', 'prop2'],
+
+    emits: ['passwordupdate'],
+
+    template: `<div class="row" style="margin-top: 100px;">
+                    <h2>Enter New Password</h2>
+                    <div class="row mt-2">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Old Password</label>
+                            <input type="password" class="form-control" name="password" v-model='old_pwd' required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">New Password</label>
+                            <input type="password" class="form-control" name="password" v-model='new_pwd' required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="confirm_password"
+                                v-model='confirm_pwd' required>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button" v-on:click='doPasswordUpdate'>Change
+                            Password</button></div>
+                    <div id='msg></div>
+                </div>`,
+
+    data() {
+        return {
+            email: '',
+            old_pwd: '',
+            new_pwd: '',
+            confirm_pwd: "",
+            message: ''
+        }
+    },
+
+    methods: {
+        doPasswordUpdate(){
+            var user_info = JSON.parse(sessionStorage.user)
+            console.log(user_info)
+            axios
+            .post("../services/process_update_password.php", {
+                email: user_info.userid,
+                old_pwd: this.old_pwd,
+                new_pwd: this.new_pwd,
+                confirm_pwd: this.confirm_pwd,
+
+            })
+            .then((response) => {
+                let result = response.data
+                console.log(result)
+
+                if (result.status) {
+                    this.$emit("passwordupdate", {
+                        email: this.email,
+                        reg_status: result['Successfully Updated Password']
+                    },
+                    )
+                }
+
+                else {
+                    this.message = 'Failed'
+                }
+            })
+            .catch((error) => {
+                this.message = "Error"
+            })
+        }
 
     },
 

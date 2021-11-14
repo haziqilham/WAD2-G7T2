@@ -118,36 +118,19 @@
 
 
                 <div class="tab-pane fade" id="update_profile">
-                    <!-- <div class="row" style="margin-top: 100px;">
-                        <h2>Enter New Particulars</h2>
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">First Name</label><input type="text"
-                                    class="form-control" placeholder="First Name" value=""></div>
-                            <div class="col-md-6"><label class="labels">Last Name</label><input type="text"
-                                    class="form-control" value="" placeholder="Last Name"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
-                                    class="form-control" placeholder="Mobile Number" value=""></div>
-                        </div>
-
-                        <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button">Save
-                                Profile</button></div>
-                    </div> -->
-
                     <profile-update @profileupdate="doProfileUpdateSuccess"></profile-update>
                 </div>
                 <div class="tab-pane fade" id="update_password">
-                    <div class="row" style="margin-top: 100px;">
+                    <!-- <div class="row" style="margin-top: 100px;">
                         <h2>Enter New Password</h2>
                         <div class="row mt-2">
                             <div class="mb-3">
                                 <label for="password" class="form-label">Old Password</label>
-                                <input type="password" class="form-control" name="password" v-model='pwd' required>
+                                <input type="password" class="form-control" name="password" v-model='old_pwd' required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">New Password</label>
-                                <input type="password" class="form-control" name="password" v-model='pwd' required>
+                                <input type="password" class="form-control" name="password" v-model='new_pwd' required>
                             </div>
 
                             <div class="mb-3">
@@ -160,7 +143,8 @@
 
                         <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button">Change
                                 Password</button></div>
-                    </div>
+                    </div> -->
+                    <password-update @passwordupdate='doPasswordUpdateSuccess'></password-update>
                 </div>
             </div>
 
