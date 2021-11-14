@@ -44,6 +44,24 @@
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <!-- Script for Pagination -->
+    <script type="text/javascript">
+      function fetch_select_two(val) {
+        $.ajax({
+        type: 'post',
+        url: 'getPosts.php',
+        data: {
+        get_option:val
+        },
+        success: function (response) {
+            console.log(response);
+        document.getElementById(val).innerHTML=response; 
+        }
+        });
+        
+      }
+    </script>
+
    
     
     <!-- Favicon logo -->
@@ -168,9 +186,9 @@
         </div>
 
         <!-- Table to display threads -->
-        <div class="row" id="app" style="padding-left: 20px; padding-right:20px">    
-          <h4 style="padding-top: 10px"> Thread Posts </h4> 
-          <table class="table table-striped table-secondary table-hover col-xs-3" style="padding-left: 40px;">
+        <div class="row" id="app" style="padding-left: 30px; padding-right:50px">    
+          <h4 style="padding-top: 10px; padding-left:0px"> Thread Posts </h4> 
+          <table class="table table-striped table-secondary table-hover col-xs-3">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -187,10 +205,44 @@
                     $dao = new POSTDAO();
                     $posts = $dao->getAll();
                     foreach($posts as $post) {
+                        //var_dump(gettype($post->getDate()));
+                        //$date = date("D M d, Y G:i");
+                        //var_dump(gettype($date));
+                        $pdate = $post->getDate();
+                        $date = strtotime(date('Y-m-d H:i:s'));
+                        $pdate = strtotime($pdate);
+                        //var_dump($date);
+                        //var_dump($pdate);
+                        $diff = $date - $pdate;
+                        //var_dump($diff);
+                        if($diff < 60 ){
+                            $diff = 'A few seconds ago';
+                        }
+                        else if($diff >= 60 && $diff< 3600 ) {
+                            $diff = round($diff/60).' mins ago';
+                        }
+                        else if($diff >= 3600 && $diff< 86400 ) {
+                            $diff = round($diff / 3600).' hours ago';
+                        }
+                        else if($diff >= 86400 && $diff< (86400*30) ) {
+                            $diff = round($diff / 86400).' days ago';
+                        }
+                        else if($diff >= (86400 * 30) && $diff< (86400*365) ) {
+                            $diff = round($diff / (86400*30)).' months ago';
+                        }
+                        else {
+                            $diff = round($diff / (86400*365)).' years ago';
+                        }
+                        
+                        //var_dump($pdate);
+                        //var_dump($diff);
+                        //var_dump($pdate);
                         echo "
                             <tr>
                                 <td>{$post->getID()}</td>
-                                <td>{$post->getDate()}</td>
+                                <td>
+                                    $diff
+                                </td>
                                 <td>{$post->getUsername()}</td>
                                 <td>
                                     <a href='replies.php?name={$post->getThreadName()}&id={$post->getID()}'>{$post->getThreadName()}</a>
@@ -202,10 +254,12 @@
                             </tr>
                         ";  
                     }
-                    ?>
+                ?>
             </tbody> 
+        </div>
+
                 
-            <script>
+        <script>
             Vue.createApp({
                 data() {
                     return {

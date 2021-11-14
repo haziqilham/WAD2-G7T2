@@ -7,7 +7,7 @@ class ConnectionManager {
         $username = 'root';
         $password = 'root'; // -> MAMP server
         //$password = ''; // -> WAMP server
-        $dbname = 'forum_pages';
+        $dbname = 'wad_g7';
         
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);     
