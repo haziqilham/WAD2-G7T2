@@ -15,9 +15,9 @@
 
 <?php
     // Database Connection
-    require_once './database/model/Post.php';
-    require_once './database/model/PostDAO.php';
-    require_once './database/model/ConnectionManager.php';
+    require_once './database/Post.php';
+    require_once './database/PostDAO.php';
+    require_once './database/ConnectionManager.php';
 ?>
 
 <!DOCTYPE html>
@@ -126,11 +126,11 @@
                         <a class="nav-link" href="../notes/notes.php">Notes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../login page/login.html">Login</a>
+                        <a class="nav-link" href="../login page/login.html">Login</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link btn rounded-pill bg-primary" href="../../login page/register.html">Register</a>
+                        <a class="nav-link btn rounded-pill bg-primary" href="../login page/register.html">Register</a>
                     </li>
 
                 </ul>
