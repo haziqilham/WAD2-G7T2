@@ -68,7 +68,7 @@ $connect = mysqli_connect("localhost", "root", "root", "wad_t7");
             <div class="collapse navbar-collapse justify-content-end" v-if='user'>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./marketplace.html"> Marketplace</a>
+                        <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
                     </li>
 
                     <li class="nav-item">
@@ -96,7 +96,7 @@ $connect = mysqli_connect("localhost", "root", "root", "wad_t7");
             <div class="collapse navbar-collapse justify-content-end" v-else>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./marketplace.html"> Marketplace</a>
+                        <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
                     </li>
 
                     <li class="nav-item">
