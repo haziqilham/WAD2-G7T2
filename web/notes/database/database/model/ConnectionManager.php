@@ -5,9 +5,9 @@ class ConnectionManager {
     public function connect() {
         $servername = 'localhost';
         $username = 'root';
-        $password = 'root'; // -> MAMP server
-        //$password = ''; // -> WAMP server
-        $dbname = 'notes';
+        // $password = 'root'; // -> MAMP server
+        $password = ''; // -> WAMP server
+        $dbname = 'wad_t7';
         
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);     
