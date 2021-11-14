@@ -20,7 +20,7 @@ $description = $_GET['description'];
 
 //connect to database
 
-$dsn = "mysql:host=localhost; dbname=marketplace; port=3306";
+$dsn = "mysql:host=localhost; dbname=wad_t7; port=3306";
 $pdo = new PDO($dsn, "root", "");
 
 $sql = "insert into market (listname, price, description) values (:listname, :price, :description)";
