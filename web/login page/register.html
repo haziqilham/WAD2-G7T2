@@ -40,6 +40,8 @@
 </head>
 
 
+
+
 <body data-spy="scroll" data-target="#top-navbar" id='app'
     style="background-image: url(../web/marketplace/img/background.png);background-size: cover;">
 
@@ -48,7 +50,7 @@
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="../web/index.html">
                         <img src="../web/photos/faviconbook.png" alt="" width="30" height="24">
                         STUDYSITE
                     </a>
@@ -98,16 +100,29 @@
                 </div>
             </div>
         </nav>
-
-        <div id='app' class="container" style="width: 60%; padding-top: 50px;">
-            <div class="row p-1">
-                <my-login @login='doLoginSuccess'></my-login>
-                <div id='msg' style="color: rgb(0, 0, 0); text-align: center;"></div>
-            </div>
-        </div>
-
     </div>
 
+    <div id='app' class="container " style="width: 60%; padding-top: 50px ;">
+        <div class="row p-1 ">
+            <div class="row" style="margin-top: 40px; ">
+                <div class="col-8" style="text-align: left; ">
+                    <h4>Create your StudySite Account</h4>
+                </div>
+                <div class="col-4" style="text-align: right;">
+                    <h6 style="font-size: 14px;" class="text-right">Already a member? <a href="login.html">Login</a>
+                        here.</h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <my-register @register='doRegisterSuccess'></my-register>
+                <div id='msg' style="color: rgb(0, 0, 0); text-align: center;" class="bg-light"></div>
+            </div>
+
+        </div>
+
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
