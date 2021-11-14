@@ -118,7 +118,6 @@ app.component('my-login', {
 
                         })
                     }
-
                     else {
                         document.getElementById("msg").innerHTML = "<h4>Login Failed</h4>"
                         this.message = 'Failed'
