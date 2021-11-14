@@ -33,6 +33,7 @@
    
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 
     <script type="text/javascript">
         function fetch_select(val)
@@ -56,85 +57,83 @@
 
     
     <!-- Favicon logo -->
-    <link rel="shortcut icon" type="image/jpg" href="../photos/faviconbook.png">
+    <link rel="shortcut icon" type="image/jpg" href="./photos/faviconbook.png">
 
     <title>StudySite</title>
 
     </head>
     <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
-        <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO HOME HERE! -->
-                            <a  class="nav-link" href="/IS216/WAD2-G7T2/web/index.html">Home</a>
-                        </li>
+    <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark" >
+        <a class="navbar-brand" href="../../web/index.html" style="padding-left: 8px;">
+            <img src="../photos/faviconbook.png" alt="" width="30" height="24">
+            STUDYSITE
+        </a>
 
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO ABOUT HERE! -->
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
+        <div class="collapse navbar-collapse justify-content-end" v-if='user'>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
+                </li>
 
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO CONTACT HERE! -->
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
+                <li class="nav-item">
 
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
-                            <a class="nav-link" href="/IS216/WAD2-G7T2/login page/login.html">Login</a>
-                        </li>    
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                    <a class="nav-link" href="../web/forum/forum3.php">Forum</a>
+                </li>
 
-        <!-- START Top Header -->
-        <div class="top-header" > 
-            <div class="text-center ">
-                <a class="navbar-brand " href="../index.html">StudySite
-                    <small class="text-dark ">
-                        Notes for Everyone!
-                    </small>                      
-                </a>
-            </div>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="../games.html">Games</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="../notes/notes.php">Notes</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">{{user.first_name}}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href='../../login page/profile.html'>Profile</a>
+                        <button v-on:click='doLogout' class="btn">Logout</button>
+                    </div>
+                </li>
+            </ul>
         </div>
-         <!-- END  Top Header -->
 
-         <!-- START NavBar -->
-        <nav id="navbar" class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
-            <!-- collapsible nav bar -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#the-nav" aria-controls="the-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="collapse navbar-collapse justify-content-end" v-else>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
+                </li>
 
-            <div class="collapse navbar-collapse" id="the-nav">
-                <ul class="navbar-nav m-auto">
-                    
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="../marketplace/marketplace.html">Marketplace</a>
-                    </li> 
-                    
+                <li class="nav-item">
 
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO GAMES HERE! -->
-                        <a class="nav-link" href="../games.html">Games</a>
-                    </li>                  
-                    
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="../forum/forum3.php">Forum</a>
-                    </li>        
+                    <a class="nav-link" href="../web/forum/forum3.php">Forum</a>
+                </li>
 
-                    <li class="nav-item">
-                        <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="./notes.php">Notes</a>
-                    </li>  
-                </ul>                
-            </div>   
-        </nav>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="../games.html">Games</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="../notes/notes.php">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
+                    <a class="nav-link" href="../../login page/login.html">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
+                    <a class="nav-link btn rounded-pill bg-primary" href="../../login page/register.html">Register</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
         <!-- End NavBar -->
 
         <!-- Start of Forum Page layout  -->
@@ -204,6 +203,10 @@
                     }
                 ?>
             </tbody>
+            
+        
+            
     </body>
+
 </html>
 
