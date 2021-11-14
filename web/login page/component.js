@@ -27,7 +27,13 @@ const app = Vue.createApp({
             this.user = null;
             console.log('logout')
             sessionStorage.removeItem('user')
-            window.location.href = '../index.html';
+            console.log(window.location.href)
+            if (window.location.href.includes('/web/index.html')){
+                window.location.href = './index.html';
+            }
+            else{
+                window.location.href = '../index.html';
+            }
         },
 
         doProfileUpdateSuccess(userInfo){
