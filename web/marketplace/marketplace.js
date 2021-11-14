@@ -45,7 +45,14 @@ const app2 = Vue.createApp({
 const vm2 = app2.mount('#app2')
 
 
+function validateForm() {
+    let x = document.forms["myForm"]["price"].value;
+    if (! isInteger(x)) {
+        alert("Price can only be integer, without '$' sign.")
+    }
 
+
+}
 
 
 
