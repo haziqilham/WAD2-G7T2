@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connect = mysqli_connect("localhost", "root", "", "wad_t7");
+$connect = mysqli_connect("localhost", "root", "root", "wad_t7");
 ?>
 
 <!DOCTYPE html>
