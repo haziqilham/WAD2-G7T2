@@ -102,10 +102,10 @@
                 <div class="tab-pane fade show active" id="profile">
                     <div class="row" style="margin-top: 100px;">
                         <div class="col">
-                            <img class="rounded-circle mt-5" width="150px"
-                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                            <img class="" style="border-radius: 50%; max-width: 75%;"
+                                src="../login page/profile_pic.png">
                         </div>
-                        <div class="col" style="text-align: center;">
+                        <div class="col" style="text-align: center; margin-top: 40px;">
                             <hr>
                             <span class="text-black-100" style="font-size: 45px;">{{user.first_name}}
                                 {{user.last_name}}</span>
@@ -121,29 +121,6 @@
                     <profile-update @profileupdate="doProfileUpdateSuccess"></profile-update>
                 </div>
                 <div class="tab-pane fade" id="update_password">
-                    <!-- <div class="row" style="margin-top: 100px;">
-                        <h2>Enter New Password</h2>
-                        <div class="row mt-2">
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Old Password</label>
-                                <input type="password" class="form-control" name="password" v-model='old_pwd' required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">New Password</label>
-                                <input type="password" class="form-control" name="password" v-model='new_pwd' required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="confirm_password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password"
-                                    v-model='confirm_pwd' required>
-                            </div>
-
-                        </div>
-
-                        <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button">Change
-                                Password</button></div>
-                    </div> -->
                     <password-update @passwordupdate='doPasswordUpdateSuccess'></password-update>
                 </div>
             </div>
