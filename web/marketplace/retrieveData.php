@@ -1,7 +1,7 @@
 <?php 
 
 $dsn = "mysql:host=localhost; dbname=wad_t7; port=3306";
-$pdo = new PDO($dsn, "root", "");
+$pdo = new PDO($dsn, "root", "root");
 
 $received_data = json_decode(file_get_contents("php://input"));
 
