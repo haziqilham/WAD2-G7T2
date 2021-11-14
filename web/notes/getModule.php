@@ -1,5 +1,5 @@
 <?php
-    $connect = mysqli_connect("localhost", "root", "", "wad_t7");
+    $connect = mysqli_connect("localhost", "root", "root", "wad_t7");
     if ($connect->connect_error) {
         die("Connection failed: " . $connect->connect_error);
       } else {
