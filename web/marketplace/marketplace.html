@@ -27,7 +27,7 @@
     <title>StudySite Marketplace</title>
 
   </head>
-  <body style="background-image: url(img/background.png); background-position: center; height: 100%; background-repeat: no-repeat; background-size: cover;">
+  <body style="background-image: url(img/bg2.jpg); background-position: center; height: 100%; background-repeat: no-repeat; background-size:auto">
   
     <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
       <div class="container-fluid">
@@ -88,37 +88,37 @@
         <h1 class="text-center">StudySite</h1>
       </div>
     </div> 
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <div class="col-6"> 
         <form class="form-inline" style="width:100%">
           <input class="form-control mr-sm-2 mt-3" type="search" placeholder="search for items..." aria-label="Search">
         </form>
       </div>
-    </div>
+    </div> -->
    
 
     <!--Carousel Row-->
-    <div class="row justify-content-start p-2 mt-3">
-      <div class="col">
+    <div class="row justify-content-center p-2 mt-3">
+      <div class="col-6">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active img1" data-bs-interval="2000">
+              <img src="img/mathsbook.jpg" class="d-block mx-auto" alt="...">
+            </div>
+            <div class="carousel-item img1" data-bs-interval="2000">
+              <img src="img/sales.jpg " class="d-block mx-auto" alt="...">
+            </div>
+            <div class="carousel-item img1" data-bs-interval="2000">
               <img src="img/book1.jpg" class="d-block mx-auto" alt="...">
-            </div>
-            <div class="carousel-item img1" data-bs-interval="2000">
-              <img src="img/book2.jpg " class="d-block mx-auto" alt="...">
-            </div>
-            <div class="carousel-item img1" data-bs-interval="2000">
-              <img src="img/book3.jpg" class="d-block mx-auto" alt="...">
           </div>
-          <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button> -->
+          </button> 
         </div>
       </div>
     </div>
@@ -128,24 +128,24 @@
       <h2>Hello</h2>
       <p v-for="row in allData">{{ row.description }}</p>
     </div> -->
-
+    
     <!--Listing Row--> 
-    <div class="container margin" id="app">
+    <div class="container " id="app" style="margin-top: 50px;">
       <div class="row justify-content-center">
+        <div class="card-group">
         <div class="col-4"  v-for="(data, index) in allData" >
-          <div class="card" style="width:80%; margin-bottom: 50px;">
-            <img src="img/textbook.jpg" class="card-img-top cardImage" alt="...">
-            <div class="card-body">
-              <p class="card-text">{{ data.listname }}</p>
-              <p class="card-text"> {{ data.price }} </p>
-              <p class="card-text"> {{ data.description }}</p>
-              <p class="card-text"> {{ data.id }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" :value=index @click="storeId" @click="storeId">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
+          <div class="card-group">
+            <div class="card" style="width:80%; margin-bottom: 50px;">
+              <img src="img/textbook.jpg" class="card-img-top cardImage" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">{{ data.listname }}</h4>
+                <p class="card-text"> {{ data.price }} </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" :value=index @click="storeId" @click="storeId">View</button>
+                  </div>
                 </div>
-                <small class="text-muted">9 mins ago</small>
+              </div>
               </div>
             </div>
           </div>

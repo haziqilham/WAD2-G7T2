@@ -5,6 +5,18 @@ $listingName = $_GET['listname'];
 $listprice = $_GET['price'];
 $description = $_GET['description'];
 
+// if(isset($_POST['upload'])){
+ 
+//     $name = $_FILES['image']['name'];
+//     $target_dir = "upload/";
+//     $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+//     // Select file type
+//     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+//     $image_base64 = base64_encode(file_get_contents('upload/'.$name) );
+//     $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+// }
+
 
 //connect to database
 
@@ -16,6 +28,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':listname', $listingName, PDO::PARAM_STR);
 $stmt->bindParam(':price', $listprice, PDO::PARAM_STR);
 $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+// $stmt->bindParam(':imgdata', $image, PDO::PARAM_LOB);
 
 $stmt->execute();
 echo "data inserted successfully";
