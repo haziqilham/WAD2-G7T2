@@ -33,7 +33,9 @@ For local deployment:
     Navigate to localhost for index.html
 
 
-
+User login information:
+Userid: jjtan.2020@scis.smu.edu.sg
+Password: password
 
 
 
