@@ -19,7 +19,7 @@ class PostDAO {
                     username,
                     threadName,
                     content
-                FROM threads LIMIT $start, $limit"; // SELECT * FROM post; // This will also work LIMIT $start, $limit
+                FROM threads ORDER BY id DESC LIMIT $start, $limit"; // SELECT * FROM post; // This will also work LIMIT $start, $limit
         $stmt = $conn->prepare($sql);
 
         // STEP 3

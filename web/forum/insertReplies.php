@@ -30,14 +30,14 @@
 
    
     </head>
-    <body data-spy="scroll" data-target="#navbar">
+    <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <!-- TODO: ADD HREF ID TO HOME HERE! -->
-                            <a  class="nav-link" href="#home">Home</a>
+                            <a  class="nav-link" href="../index.html">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -52,7 +52,7 @@
 
                         <li class="nav-item">
                             <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
-                            <a class="nav-link" href="#login">Login</a>
+                            <a class="nav-link" href="/IS216/WAD2-G7T2/login page/login.html">Login</a>
                         </li>    
                     </ul>
                 </div>
@@ -85,7 +85,7 @@
                     
                     <li class="nav-item">
                         <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                        <a class="nav-link" href="#market">Marketplace</a>
+                        <a class="nav-link" href="../marketplace/marketplace.html">Marketplace</a>
                     </li> 
                     
 
@@ -115,7 +115,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
-                $dbname = "forum_pages";
+                $dbname = "wad_g7";
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection

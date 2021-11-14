@@ -21,6 +21,8 @@
             return $status;
         }
 
+
+
         # Retrieve a user with a given username
         # Return null if no such user exists
         public function retrieve($email){
