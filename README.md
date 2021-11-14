@@ -33,3 +33,43 @@ For local deployment:
 
 
 
+
+
+
+DATABASE CONFIGURATIONS [mySQL]
+
+For Mac Users:
+
+    [Default user for Mac is 'root']
+    [Default password for Mac is 'root']
+
+  
+For Windows Users:
+
+    [Default user for Windows is 'root']
+    [Default password for Windows is '']
+
+
+
+
+
+******    Ensure that the following passwords in the files are set correctly:
+        Forum
+        -/web/forum/conn.php
+        -/web/forum/database/ConnectionManager.php 
+
+        Notes
+        -/web/notes/notes.php
+        -/web/notes/database/model/ConnectionManager.php
+        -/web/notes/getModule.php  
+
+        Services
+        -/services/model/ConnectionManager.php
+
+        Forum
+        -/forum/getdislikes.php
+        -/forum/getlikes.php
+
+        Marketplace
+        -/web/marketplace/retrieveData.php
+        -/web/marketplace/insertData.php
