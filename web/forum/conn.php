@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "wad_t7";
     
     // Create connection
