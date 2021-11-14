@@ -30,7 +30,7 @@ For local deployment:
 
 -Frontend:
     Extract all the components inside web folder and place them inside the localhost (htdocs or www)
-    Navigate to /web for index.html
+    Navigate to localhost for index.html
 
 
 
