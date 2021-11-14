@@ -140,7 +140,7 @@ require_once './database/ConnectionManager.php';
     <!-- End NavBar -->
 
     <!-- Start of Forum Page layout  -->
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../marketplace/img/background.png); background-size: cover;">
         <div class="col-12">Message Board</div>
         <!-- Page Trail -->
         <div class="col-auto" style="padding-right: 2px;">
