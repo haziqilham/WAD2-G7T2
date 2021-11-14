@@ -117,7 +117,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
-                $dbname = "wad_g7";
+                $dbname = "wad_t7";
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 // Check connection
