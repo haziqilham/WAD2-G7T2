@@ -9,7 +9,10 @@
     box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
   }
   
- 
+  #carousel {
+    width:100%
+  }
+
   .my-form {
     padding: 2.5rem;
   }
