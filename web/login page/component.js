@@ -11,7 +11,7 @@ const app = Vue.createApp({
             this.user = userInfo;
             if (this.user){
                 sessionStorage.setItem("user",  JSON.stringify(this.user))
-                window.location.href = '../web/index.html';
+                window.location.href = '../index.html';
             }
         },
         doRegisterSuccess(userInfo) {
@@ -27,7 +27,7 @@ const app = Vue.createApp({
             this.user = null;
             console.log('logout')
             sessionStorage.removeItem('user')
-            window.location.href = '../web/index.html';
+            window.location.href = '../index.html';
         },
 
         doProfileUpdateSuccess(userInfo){
