@@ -10,7 +10,7 @@
     {
         $module = $_POST['get_option'];
         var_dump($module);
-        $sql = mysqli_query($connect, "SELECT * FROM modules");
+        $sql = mysqli_query($connect, "SELECT * FROM modules where sid = '$module';");
         var_dump($sql);
         echo "<option value='Select Module'></option>";
         while($row = mysqli_fetch_array($sql)){

@@ -137,106 +137,82 @@
 
 
 <body data-spy="scroll" data-target="#top-navbar" onload="weather()" id='app'>
+    <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark" >
+        <a class="navbar-brand" href="#" style="padding-left: 8px;">
+            <img src="./photos/faviconbook.png" alt="" width="30" height="24">
+            STUDYSITE
+        </a>
 
-    <div id='app'>
+        <div class="collapse navbar-collapse justify-content-end" v-if='user'>
+            <ul class="navbar-nav">
+                <li class="nav-item">
 
-        <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
-            <div class="container-fluid">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="./photos/faviconbook.png" alt="" width="30" height="24">
-                        STUDYSITE
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">{{user.first_name}}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href='../login page/profile.html'>Profile</a>
+                        <button v-on:click='doLogout' class="btn">Logout</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" v-else>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+
+
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
                     </a>
-                </div>
-
-
-                <div class="collapse navbar-collapse justify-content-end" v-if='user'>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" >
-                            {{user.first_name}}
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href='../login page/profile.html'>Profile</a></li>
-                                <li><button v-on:click='doLogout' class="btn">Logout</button></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            
-                        </li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="./marketplace/marketplace.html">Marketplace</a></li>
+                        <li><a class="dropdown-item" href="./forum/forum3.php">Forum</a></li>
+                        <li><a class="dropdown-item" href="./games.html">Games</a></li>
+                        <li><a class="dropdown-item" href="./notes/notes.php">Notes</a></li>
                     </ul>
-                </div>
+                </li>
 
-                <div class="collapse navbar-collapse justify-content-end" v-else>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
+                    <a class="nav-link" href="../login page/login.html">Login</a>
+                </li>
 
+                <li class="nav-item">
+                    <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
+                    <a class="nav-link btn rounded-pill bg-primary" href="../login page/register.html">Register</a>
+                </li>
 
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Services
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="./marketplace/marketplace.html">Marketplace</a></li>
-                                <li><a class="dropdown-item" href="./forum/forum3.php">Forum</a></li>
-                                <li><a class="dropdown-item" href="./games.html">Games</a></li>
-                                <li><a class="dropdown-item" href="./notes/notes.php">Notes</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
-                            <a class="nav-link" href="../login page/login.html">Login</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
-                            <a class="nav-link btn rounded-pill bg-primary"
-                                href="../login page/register.html">Register</a>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </div>
-
-
-        </nav>
-
-
-        <div id='app'>
-
+            </ul>
         </div>
         <section class="bg4" id="home">               
             <div class="pomocontainer" id="pomo">
@@ -277,163 +253,177 @@
                                 place for you!</p>
                         </div>
 
-                        <div v-else>
-                            <h1>
-                                Welcome
-                            </h1>
-                            <br>
-                          
-                            <h5 class="animate">Need some help with your work? <br>
-                                Looking for books?<br>
-                                 or just a place to unwind?<br> StudySite is
-                                the
-                                place for you!</h5>
-                        </div>
+    <section class="bg4" id="home">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-md"></div>
+                <div class="col-md-6" id="box">
 
-
-                        <h3>Weather of the Day: </h3>
-                        <img id="image" src="" width="200" height="200">
+                    <div v-if='user'>
                         <h1>
-                            <div id="weather"></div>
+                            Welcome {{user.first_name}}
                         </h1>
-
+                        <p>Need some help with your work? <br>
+                            Looking for books?<br>
+                            or just a place to unwind?<br> StudySite is
+                            the
+                            place for you!</p>
                     </div>
-                </div>
 
-            </div>
-        </section>
-
-
-        <section class="bg5" id="about">
-            <div class="container">
-                <div class="row" style="text-align: center;">
-
-
-                    <div class="col-md">
+                    <div v-else>
                         <h1>
-                            About StudySite
+                            Welcome
                         </h1>
-                        <p> Here at StudySite we want to give you the best experience. We want to help students find the
-                            resources they need and provide a platform where they can destress. </p>
+                        <br>
+
+                        <h5 class="animate">Need some help with your work? <br>
+                            Looking for books?<br>
+                            or just a place to unwind?<br> StudySite is
+                            the
+                            place for you!</h5>
                     </div>
 
 
-                </div>
+                    <h3>Weather of the Day: </h3>
+                    <img id="image" src="" width="200" height="200">
+                    <h1>
+                        <div id="weather"></div>
+                    </h1>
 
-                <!-- cards display START -->
-                <div class="row">
-                    <!-- START CARD -->
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg2 ">
-                            <h5 class="card-title">Marketplace</h5>
-
-                            <div class="card-body">
-                                <!-- <h5 class="card-title">Marketplace</h5> -->
-                                <p class="card-text">Check out our brand new marketplace!</p>
-                                <!-- <a href="./marketplace/marketplace.html" class="btn btn-primary">Let's Go!</a> -->
-                            </div>
-                            <a href="./marketplace/marketplace.html" class="btn btn-primary">Let's Go!</a>
-                        </div>
-                    </div>
-                    <!-- END CARD -->
-                    <!-- START CARD -->
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg3 ">
-                            <h5 class="card-title">Forum</h5>
-                            <div class="card-body">
-                                <!-- <h5 class="card-title">Forum</h5> -->
-                                <p class="card-text">Got Questions you need answered? Ask them here!</p>
-
-                            </div>
-                            <a href="./forum/forum3.php" class="btn btn-primary">Let's Go!</a>
-                        </div>
-                    </div>
-                    <!-- END CARD -->
-                    <!-- START CARD -->
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg4 ">
-                            <h5 class="card-title">Games</h5>
-                            <div class="card-body">
-                                <!-- <h5 class="card-title">Games</h5> -->
-                                <p class="card-text">Climb the leaderboards with some games!</p>
-
-                            </div>
-                            <a href="./games.html" class="btn btn-primary">Let's Go!</a>
-                        </div>
-                    </div>
-                    <!-- END CARD -->
-                    <!-- START CARD -->
-                    <div class="col-sm-3">
-                        <div class="card text-dark bg7 ">
-                            <h5 class="card-title">Notes</h5>
-
-                            <div class="card-body">
-                                <!-- <h5 class="card-title">Notes</h5> -->
-                                <p class="card-text">A library at your fingertips</p>
-
-                            </div>
-                            <a href="./notes/notes.php" class="btn btn-primary">Let's Go!</a>
-                        </div>
-                    </div>
-                    <!-- END CARD -->
-
-                </div>
-                <!-- cards display END -->
-            </div>
-        </section>
-
-
-        <section class="bg6" id="contact">
-            <div class="container">
-                <h1>
-                    Contact Us
-                </h1>
-                <br>
-
-
-                <div class="col-lg-12">
-                    <form method="POST" action="mailer.php">
-                        <div class="contactdetail">
-                            <h3>
-                                Got Questions for us? Leave a message and we'll get right back to you
-                            </h3>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="text" name="name" id="name" placeholder="Your Name"
-                                        class="form-control">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" placeholder="Your Email"
-                                        class="form-control">
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="form-group">
-                                <input type="text" name="subject" id="subject" placeholder="Subject "
-                                    class="form-control ">
-                            </div>
-                            <br>
-
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" id="message" placeholder="Message"
-                                    rows="8"></textarea>
-                            </div>
-                            <br>
-                            <div class="text-center">
-                                <button class="btn btn-warning btn-lg" type="submit" id="sendmessage">Send Message</button>
-                            </div>
-
-                        </div>
-                    </form>
-                    <div id="alertmessage"></div>
                 </div>
             </div>
-        </section>
-    </div>
+
+        </div>
+    </section>
+
+
+    <section class="bg5" id="about">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+
+
+                <div class="col-md">
+                    <h1>
+                        About StudySite
+                    </h1>
+                    <p> Here at StudySite we want to give you the best experience. We want to help students find the
+                        resources they need and provide a platform where they can destress. </p>
+                </div>
+
+
+            </div>
+
+            <!-- cards display START -->
+            <div class="row">
+                <!-- START CARD -->
+                <div class="col-sm-3">
+                    <div class="card text-dark bg2 ">
+                        <h5 class="card-title">Marketplace</h5>
+
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Marketplace</h5> -->
+                            <p class="card-text">Check out our brand new marketplace!</p>
+                            <!-- <a href="./marketplace/marketplace.html" class="btn btn-primary">Let's Go!</a> -->
+                        </div>
+                        <a href="./marketplace/marketplace.html" class="btn btn-primary">Let's Go!</a>
+                    </div>
+                </div>
+                <!-- END CARD -->
+                <!-- START CARD -->
+                <div class="col-sm-3">
+                    <div class="card text-dark bg3 ">
+                        <h5 class="card-title">Forum</h5>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Forum</h5> -->
+                            <p class="card-text">Got Questions you need answered? Ask them here!</p>
+
+                        </div>
+                        <a href="./forum/forum3.php" class="btn btn-primary">Let's Go!</a>
+                    </div>
+                </div>
+                <!-- END CARD -->
+                <!-- START CARD -->
+                <div class="col-sm-3">
+                    <div class="card text-dark bg4 ">
+                        <h5 class="card-title">Games</h5>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Games</h5> -->
+                            <p class="card-text">Climb the leaderboards with some games!</p>
+
+                        </div>
+                        <a href="./games.html" class="btn btn-primary">Let's Go!</a>
+                    </div>
+                </div>
+                <!-- END CARD -->
+                <!-- START CARD -->
+                <div class="col-sm-3">
+                    <div class="card text-dark bg7 ">
+                        <h5 class="card-title">Notes</h5>
+
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Notes</h5> -->
+                            <p class="card-text">A library at your fingertips</p>
+
+                        </div>
+                        <a href="./notes/notes.php" class="btn btn-primary">Let's Go!</a>
+                    </div>
+                </div>
+                <!-- END CARD -->
+
+            </div>
+            <!-- cards display END -->
+        </div>
+    </section>
+
+
+    <section class="bg6" id="contact">
+        <div class="container">
+            <h1>
+                Contact Us
+            </h1>
+            <br>
+
+
+            <div class="col-lg-12">
+                <form method="POST" action="mailer.php">
+                    <div class="contactdetail">
+                        <h3>
+                            Got Questions for us? Leave a message and we'll get right back to you
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" placeholder="Your Name" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Your Email"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <input type="text" name="subject" id="subject" placeholder="Subject " class="form-control ">
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="message" placeholder="Message"
+                                rows="8"></textarea>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-warning btn-lg" type="submit" id="sendmessage">Send Message</button>
+                        </div>
+
+                    </div>
+                </form>
+                <div id="alertmessage"></div>
+            </div>
+        </div>
+    </section>
 
     
     <!-- Optional JavaScript -->
