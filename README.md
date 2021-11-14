@@ -29,6 +29,7 @@ For local deployment:
     1) upload compiled.sql found in /web directory
 
 -Frontend:
+    Extract all the components inside web folder and place them inside the localhost (htdocs or www)
     Navigate to /web for index.html
 
 
