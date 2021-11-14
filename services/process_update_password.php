@@ -32,8 +32,7 @@
     $results = [
         "status" =>  false
     ];
-    if ( isset($_POST['old_pwd']) && isset($_POST['new_pwd']) && isset($_POST['confirm_pwd']) && $_POST['new_pwd'] == $_POST['confirm_pwd']) {
-        var_dump($_POST);
+    if ( isset($_POST['old_pwd']) && isset($_POST['new_pwd']) && isset($_POST['confirm_pwd']) && ($_POST['new_pwd'] == $_POST['confirm_pwd'])) {
         $email = $_POST['email'];
         $old_pwd = $_POST['old_pwd'];
         $new_pwd = $_POST['new_pwd'];

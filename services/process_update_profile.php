@@ -13,10 +13,8 @@
         $dao = new UserDAO();
 
         $user = $dao->retrieve($email);
-        var_dump($user);
         $status = $user->update_profile($email, $process_first_name, $process_last_name);
         if($status){
-            $results['teno'] = $_POST;
             $results['status'] = true;
             $results['first_name'] = $process_first_name;
             $results['last_name'] = $process_last_name;
@@ -36,18 +34,17 @@
 
 
     if ( isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name'])) {
-        var_dump($_POST);
-        $email = $_POST['email'];
+        $userid = $_POST['email'];
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
-        $results = doProfileUpdate($email, $first_name ,$last_name, $results);
+        $results = doProfileUpdate($userid, $first_name ,$last_name, $results);
     
     } else { // axios sends via raw data
         $obj = json_decode( file_get_contents("php://input") );
-        $email = $obj->email;
+        $userid = $obj->email;
         $first_name = $obj->first_name;
         $last_name = $obj->last_name;
-        $results = doProfileUpdate($email, $first_name ,$last_name, $results);
+        $results = doProfileUpdate($userid, $first_name ,$last_name, $results);
     }
     
     

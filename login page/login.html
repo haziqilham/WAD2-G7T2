@@ -40,7 +40,8 @@
 </head>
 
 
-<body data-spy="scroll" data-target="#top-navbar" id='app' style="background-image: url(../web/marketplace/img/background.png);background-size: cover;">
+<body data-spy="scroll" data-target="#top-navbar" id='app'
+    style="background-image: url(../web/marketplace/img/background.png);background-size: cover;">
 
     <div id='app'>
 
@@ -75,7 +76,8 @@
                                 Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../web/marketplace/marketplace.html">Marketplace</a></li>
+                                <li><a class="dropdown-item" href="../web/marketplace/marketplace.html">Marketplace</a>
+                                </li>
                                 <li><a class="dropdown-item" href="../web/forum/forum3.php">Forum</a></li>
                                 <li><a class="dropdown-item" href="../web/games.html">Games</a></li>
                                 <li><a class="dropdown-item" href="../web/notes/notes.php">Notes</a></li>
@@ -99,10 +101,11 @@
 
         <div id='app' class="container" style="width: 60%; padding-top: 50px;">
             <div class="row p-1">
-                    <my-login @login='doLoginSuccess'></my-login>
+                <my-login @login='doLoginSuccess'></my-login>
+                <div id='msg' style="color: rgb(0, 0, 0); text-align: center;"></div>
             </div>
         </div>
- 
+
     </div>
 
 
