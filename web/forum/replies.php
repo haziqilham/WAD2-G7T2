@@ -79,80 +79,71 @@
 </head>
 <body>
 <body style="background-image: url(../marketplace/img/background.png); background-size: cover;" data-spy="scroll" data-target="#navbar">
-  <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse justify-content-end">
+<nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+            <a class="navbar-brand" href="../index.html" style="padding-left: 8px;">
+                <img src="../photos/faviconbook.png" alt="" width="30" height="24">
+                STUDYSITE
+            </a>
 
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <!-- TODO: ADD HREF ID TO HOME HERE! -->
-                <a  class="nav-link" href="#home">Home</a>
-            </li>
+            <!-- <div class="collapse navbar-collapse justify-content-end" v-if='user'>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./marketplace.html"> Marketplace</a>
+                    </li>
 
-            <li class="nav-item">
-                <!-- TODO: ADD HREF ID TO ABOUT HERE! -->
-                <a class="nav-link" href="#about">About</a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../forum/forum3.php">Forum</a>
+                    </li>
 
-            <li class="nav-item">
-                <!-- TODO: ADD HREF ID TO CONTACT HERE! -->
-                <a class="nav-link" href="#contact">Contact</a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../games.html">Games</a>
+                    </li>
 
-            <li class="nav-item">
-                <!-- TODO: ADD HREF ID TO LOGIN HERE! -->
-                <a class="nav-link" href="#login">Login</a>
-            </li>    
-          </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../notes/notes.php">Notes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{user.first_name}}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href='../../login page/profile.html'>Profile</a></li>
+                            <li><button v-on:click='doLogout' class="btn">Logout</button></li>
+                        </ul>
+                    </li>
 
-      </div>
+                </ul>
+            </div> -->
 
-    </div>
-  </nav>
+            <div class="collapse navbar-collapse justify-content-end" v-else>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
+                    </li>
 
-     <!-- START Top Header -->
-  <div class="top-header"> 
-    <div class="text-center ">
-      <a class="navbar-brand " href="../index.html">StudySite
-        <small class="text-dark ">
-          Notes for Everyone!
-        </small>                      
-      </a>
-    </div>
-  </div>
-  <!-- END  Top Header -->
+                    <li class="nav-item">
 
+                        <a class="nav-link" href="../forum/forum3.php">Forum</a>
+                    </li>
 
-  <!-- START NavBar -->
+                    <li class="nav-item">
 
-  <!-- TODO: Add CSS class to navbar text etc -->
-  <nav id="navbar" class="navbar sticky-top navbar-dark bg-success navbar-expand-md">
-      <!-- collapsible nav bar -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#the-nav" aria-controls="the-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+                        <a class="nav-link" href="../games.html">Games</a>
+                    </li>
 
-      <div class="collapse navbar-collapse" id="the-nav">
-          <ul class="navbar-nav m-auto">
-              <li class="nav-item">
-                  <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                  <a class="nav-link" href="#market">Marketplace</a>
-              </li> 
-              <li class="nav-item">
-                  <!-- TODO: ADD HREF ID TO GAMES HERE! -->
-                  <a class="nav-link" href="../games.html">Games</a>
-              </li>                  
-              <li class="nav-item">
-                  <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                  <a class="nav-link" href="../forum/forum3.php">Forum</a>
-              </li>        
-              <li class="nav-item">
-                    <!-- TODO: ADD HREF ID TO Forum HERE! -->
-                    <a class="nav-link" href="../notes/notes.php">Notes</a>
-                </li>
-          </ul>                
-      </div>   
-    </nav>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="../notes/notes.php">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../login page/login.html">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link btn rounded-pill bg-primary" href="../../login page/register.html">Register</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
    <!-- End NavBar -->
 
     <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
