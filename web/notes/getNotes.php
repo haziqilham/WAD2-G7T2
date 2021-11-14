@@ -69,7 +69,7 @@
             STUDYSITE
         </a>
 
-        <div class="collapse navbar-collapse justify-content-end" v-if='user'>
+        <!-- <div class="collapse navbar-collapse justify-content-end" v-if='user'>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="../marketplace/marketplace.html"> Marketplace</a>
@@ -99,7 +99,7 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div> -->
 
         <div class="collapse navbar-collapse justify-content-end" v-else>
             <ul class="navbar-nav">
@@ -204,7 +204,7 @@
                 ?>
             </tbody>
             
-        
+            <!-- <script src='../../login page/component.js'></script> -->
             
     </body>
 
