@@ -17,7 +17,7 @@ const app2 = Vue.createApp({
                 this.allData = response.data;
                 console.log(this.allData.length)
                 console.log(this.currId)
-                
+                console.log(this.allData[1].img_data)
                     // this.listname = response.data[x].listname
                 })
                

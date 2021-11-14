@@ -216,30 +216,15 @@
         </div>
     </nav>
 
-
-    <section class="bg4" id="home">
-        <!-- <div class="pomocontainer" id="pomo">
-            <div class="row" style="text-align: center;">                   
-                <div class="col-md">
-
-                    <div id="pomodoro-app">
-                        <div id="container">
-                          <div id="timer">
-                            <div id="time">
-                              <span id="minutes">25</span>
-                              <span id="colon">:</span>
-                              <span id="seconds">00</span>
-                            </div>
-                            <div id="filler"></div>
-                     
-                        </div> -->
-
+    <section class="bg4" id="home">    
 
 
         <div class="container" >
             <div class="row" style="text-align: center;">
                 <div class="col-md">
+
                     <div id="pomodoro-app">
+                        <h2 class="animate4" style="padding-top: 40px;color: red;">POMODORO</h2>
                         <div id="container">
                           <div id="timer">
                             <div id="time">
@@ -251,10 +236,19 @@
                           </div>
                       
                           <div id="buttons">
-                            <button id="work">Work</button>
-                            <button id="shortBreak">Short Break</button>
-                            <button id="longBreak">Long Break</button>
-                            <button id="stop">Stop</button>
+                              <div class="row" style="padding: 3rem;">
+                                  <div class="col"><button class="btn" id="work" >Work</button></div>
+                            
+                            <div class="col"><button class="btn" id="shortBreak">Short Break</button></div>
+                            
+                            <div class="col"><button class="btn" id="longBreak">Long Break</button></div>
+                            <div class="col"><button class="btn" id="stop">Stop</button></div>
+                            </div>
+                            
+                            
+                            
+                            
+                            
                           </div>
                         </div>
                       </div>
@@ -276,7 +270,7 @@
                                                 place for you!</p>
                                         </div>
 
-                                        <div v-else>
+                                        <div class="d-none d-lg-block" v-else >
                                             <h1>
                                                 Welcome
                                             </h1>
@@ -322,7 +316,7 @@
             <!-- cards display START -->
             <div class="row">
                 <!-- START CARD -->
-                <div class="col-sm-3">
+                <div class="col-sm-3 d-none d-lg-block">
                     <div class="card text-dark bg2 ">
                         <h5 class="card-title">Marketplace</h5>
 
@@ -336,7 +330,7 @@
                 </div>
                 <!-- END CARD -->
                 <!-- START CARD -->
-                <div class="col-sm-3">
+                <div class="col-sm-3 d-none d-lg-block">
                     <div class="card text-dark bg3 ">
                         <h5 class="card-title">Forum</h5>
                         <div class="card-body">
@@ -349,7 +343,7 @@
                 </div>
                 <!-- END CARD -->
                 <!-- START CARD -->
-                <div class="col-sm-3">
+                <div class="col-sm-3 d-none d-lg-block">
                     <div class="card text-dark bg4 ">
                         <h5 class="card-title">Games</h5>
                         <div class="card-body">
@@ -362,7 +356,7 @@
                 </div>
                 <!-- END CARD -->
                 <!-- START CARD -->
-                <div class="col-sm-3">
+                <div class="col-sm-3 d-none d-lg-block">
                     <div class="card text-dark bg7 ">
                         <h5 class="card-title">Notes</h5>
 

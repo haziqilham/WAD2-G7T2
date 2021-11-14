@@ -38,34 +38,35 @@
           <h1 class="text-center">StudySite</h1>
         </div>
       </div> 
-      <div class="row justify-content-center">
+      <!-- <div class="row justify-content-center">
         <div class="col-6"> 
           <form class="form-inline" style="width:100%">
-            <input class="form-control mr-sm-2 mt-3" type="search" placeholder="search for items..." aria-label="Search">
+            <input class="form-control mr-sm-2 mt-3" type="search" placeholder="search for items..." aria-label="Search"> -->
           </form>
         </div>
       </div>
     </div>
       
 
-    
-    <div class="container bg-light" style="margin-top: 50px;" id="app">
+    <div id="app2">
+    <div class="container bg-light" style="margin-top: 50px;">
         <div class="row justify-content-start" >
             <did class="col-4 pt-3">
                 <img src="img/textbook.jpg" class="viewSize border border-2 border-secondary"/>
-                <p class="viewWord">{{ allData[currId].listname }}</p>
-                <p class="viewWord">test</p>
+                <!-- <p class="viewWord">{{ allData[currId].listname }}</p> -->
+                
 
                 
             </did>
 
             <!--Description Box-->
             <div class="col-6">
-                <p><span class="description">Description</span></p>
+                <p><span class="description">{{ allData[currId].listname }}</span></p>
                 <p><span class="titleWord">Price:</span> <span style="font-style: italic;">{{ allData[currId].price }}</span></p>
                 <p><span class="titleWord">Short Description:</span> <br>{{ allData[currId].description }}</p>
             </div> 
         </div>
+      </div>
         
     
 
@@ -92,7 +93,7 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
   
 
      <!-- Option 1: Bootstrap Bundle with Popper -->

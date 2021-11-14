@@ -78,6 +78,7 @@ var pomodoro = {
     timerComplete: function () {
         this.started = false;
         this.fillerHeight = 0;
+        alert("Time's Up!");
     }
     
 };
@@ -86,7 +87,9 @@ var pomodoro = {
 
     weather_states = {
         801:"./photos/icons/cloudy-day-1.svg",
+        802:"./photos/icons/cloudy-day-1.svg",
         803: "./photos/icons/cloudy.svg",
+        804: "./photos/icons/cloudy.svg",
         800: "./photos/icons/day.svg",
         500:"./photos/icons/rainy-3.svg",
         501:"./photos/icons/rainy-3.svg",
