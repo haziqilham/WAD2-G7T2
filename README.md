@@ -54,7 +54,7 @@ For Mac Users:
 For Windows Users:
 
     [Default user for Windows is 'root']
-    [Default password for Windows is 'root']
+    [Default password for Windows is '']
 
     Ensure that the following passwords in the files are set correctly:
         -/web/forum/conn.php
