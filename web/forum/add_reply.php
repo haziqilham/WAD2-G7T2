@@ -103,7 +103,7 @@ if (isset($_POST['reply'])) {
     </nav>
     <!-- End NavBar -->
 
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../photos/Books.jpg);">
         <div class="col-12">
             <?php
             $name = $_GET['id'];
@@ -147,21 +147,21 @@ if (isset($_POST['reply'])) {
         <form action="insertReplies.php" method="get">
             <div class="form-group">
                 <label for="username">Username :</label>
-                <input type="text" name="username" id="username" v-model="username" class="form-control">
+                <input type="text" name="username" id="username" class="form-control">
             </div>
             <div class="form-group">
                 <label for="threadName">Thread ID:</label>
-                <input type="text" name="id" class="form-control" v-model="id" value="<?php echo $_GET['value'] ?>">
+                <input type="text" name="id" class="form-control" value="<?php echo $_GET['value'] ?>">
 
             </div>
             <div class="form-group">
                 <label for="reply">Reply</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="reply" v-model="reply"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="reply" ></textarea>
             </div>
 
             <div class="form-group" style="padding-top: 10px;">
                 <a href="insertReplies.php">
-                    <button class="btn btn-primary" type="submit" v-on:click="insertData()">Submit</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </a>
             </div>
         </form>

@@ -99,7 +99,7 @@
     </nav>
     <!-- End NavBar -->
 
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../photos/Books.jpg);">
         <div class="col-12">Message Board</div>
         <div class="col-auto" style="padding-right: 2px;">
             <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">
@@ -133,21 +133,21 @@
         <form action="insertData.php" method="get">
             <div class="form-group">
                 <label for="username">Username :</label>
-                <input type="text" name="username" id="username" v-model="username" class="form-control">
+                <input type="text" name="username" id="username"class="form-control">
             </div>
             <div class="form-group">
                 <label for="threadName">Thread Name:</label>
-                <input type="text" name="threadName" class="form-control" v-model="threadName">
+                <input type="text" name="threadName" class="form-control">
 
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="content" v-model="content"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="content"></textarea>
             </div>
 
             <div class="form-group" style="padding-top: 10px;">
                 <a href="insertData.php">
-                    <button class="btn btn-primary" type="submit" v-on:click="insertData()">Submit</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </a>
             </div>
         </form>
