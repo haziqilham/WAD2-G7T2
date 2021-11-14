@@ -99,7 +99,7 @@
     </nav>
     <!-- End NavBar -->
 
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px;">
         <div class="col-12">Message Board</div>
         <div class="col-auto" style="padding-right: 2px;">
             <a href="../index.html" style="color: black; text-decoration: none; font-size: medium;">

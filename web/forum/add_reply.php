@@ -103,7 +103,7 @@ if (isset($_POST['reply'])) {
     </nav>
     <!-- End NavBar -->
 
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px;">
         <div class="col-12">
             <?php
             $name = $_GET['id'];
