@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connect = mysqli_connect("localhost", "root", "root", "notes");
+$connect = mysqli_connect("localhost", "root", "", "wad_t7");
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,7 @@ $connect = mysqli_connect("localhost", "root", "root", "notes");
 
 
     <!-- Start of Forum Page layout  -->
-    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px; background-image: url(../web/photos/Books.jpg);">
+    <div class="row" style=" justify-content: left; padding-top: 0px; padding-left: 20px; font-size: 70px;">
         <div class="col-12">Notes</div>
         <!-- Page Trail -->
         <div class="col-auto" style="padding-right: 2px;">
@@ -192,24 +192,24 @@ $connect = mysqli_connect("localhost", "root", "root", "notes");
 </html>
 
 <script>
-    Vue.createApp({
-        data() {
-            return {
-                schools: [] // array of post objects
-            }
-        },
-        created() { // created is a hook that executes as soon as Vue instance is created
-            axios.get('http://localhost/IS216/WAD2-G7T2/web/notes/database/database/getSchools.php')
-                .then(response => {
-                    // this gets the data, which is an array, and pass the data to Vue instance's posts property
-                    this.schools = response.data
+    // Vue.createApp({
+    //     data() {
+    //         return {
+    //             schools: [] // array of post objects
+    //         }
+    //     },
+    //     created() { // created is a hook that executes as soon as Vue instance is created
+    //         axios.get('http://localhost/IS216/WAD2-G7T2/web/notes/database/database/getSchools.php')
+    //             .then(response => {
+    //                 // this gets the data, which is an array, and pass the data to Vue instance's posts property
+    //                 this.schools = response.data
 
-                })
-                .catch(error => {
-                    this.schools = [{
-                        entry: 'There was an error: ' + error.message
-                    }]
-                })
-        }
-    }).mount('#app3')
+    //             })
+    //             .catch(error => {
+    //                 this.schools = [{
+    //                     entry: 'There was an error: ' + error.message
+    //                 }]
+    //             })
+    //     }
+    // }).mount('#app3')
 </script>

@@ -16,6 +16,10 @@ const app = Vue.createApp({
         },
         doRegisterSuccess(userInfo) {
             this.user = userInfo;
+            console.log(this.user)
+            window.location.href = '../login page/login.html';
+
+
         },
 
         // event handler for logout button
@@ -27,11 +31,11 @@ const app = Vue.createApp({
         },
 
         doProfileUpdateSuccess(userInfo){
-            console.log('here')
-            console.log(sessionStorage.user)
             this.user = userInfo;
-            sessionStorage.removeItem('user')
-            sessionStorage.setItem("user",  JSON.stringify(this.user))
+            // sessionStorage.removeItem('user')
+            console.log(this.user)
+            // sessionStorage.setItem("user",  JSON.stringify(this.user))
+
         },
         doPassworddUpdateSuccess(userInfo){
             console.log('Success')
@@ -116,6 +120,7 @@ app.component('my-login', {
                     }
 
                     else {
+                        document.getElementById("msg").innerHTML = "<h4>Login Failed</h4>"
                         this.message = 'Failed'
                     }
                 })
@@ -214,7 +219,8 @@ app.component('my-register', {
                     }
 
                     else {
-                        this.message = 'Failed'
+                        this.message = 'Registration Failed'
+                        document.getElementById("msg").innerHTML = "<h4>Registration Failed</h4>"
                     }
                 })
                 .catch((error) => {
@@ -261,7 +267,8 @@ app.component('profile-update', {
 
     methods: {
         doProfileUpdate() {
-            var user_info = JSON.parse(sessionStorage.user)
+            let user_info = JSON.parse(sessionStorage.user)
+            console.log(user_info)
             axios
                 .post("../services/process_update_profile.php", {
                     email: user_info.userid,
@@ -273,14 +280,17 @@ app.component('profile-update', {
                     console.log(result)
 
                     if (result.status) {
+                        let ele = document.getElementById("update_profile")
+                        ele.lastChild.innerHTML = "<h6>Profile Updated</h6>"
+
                         this.first_name = "";
                         this.last_name = "";
                         this.$emit("profileupdate", {
-                            email: this.email,
+                            email: user_info.userid,
                             first_name: result["first_name"],
                             last_name: result['last_name'],
-                            reg_status: result['Successfully Updated Profile']
                         })
+
                     }
 
                     else {
@@ -344,7 +354,6 @@ app.component('password-update', {
     methods: {
         doPasswordUpdate(){
             var user_info = JSON.parse(sessionStorage.user)
-            console.log(user_info)
             axios
             .post("../services/process_update_password.php", {
                 email: user_info.userid,
@@ -357,17 +366,18 @@ app.component('password-update', {
                 let result = response.data
                 console.log(result)
 
-                if (result.status) {
+                if (result !== null) {
+                    let ele = document.getElementById("update_password")
+                    ele.lastChild.innerHTML = "<h6>Password Updated</h6>"                    
                     this.$emit("passwordupdate", {
                         email: this.email,
-                        reg_status: result['Successfully Updated Password']
                     },
                     )
                 }
 
                 else {
-                    this.message = 'Failed'
-                }
+                    let ele = document.getElementById("update_password")
+                    ele.lastChild.innerHTML = "<h6>Failed to change password.</h6>"                  }
             })
             .catch((error) => {
                 this.message = "Error"

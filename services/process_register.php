@@ -23,7 +23,7 @@
 
         }
         else{
-            echo "Failed to register";
+            $results['message'] = "Failed to register";
         }
 
         return $results;
@@ -34,8 +34,7 @@
     ];
 
 
-    if ( isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_name']) && isset($_POST['last_name']) && $_POST['password'] === $_POST['confirm_password']) {
-        var_dump($_POST);
+    if ( isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_name']) && isset($_POST['last_name']) && ($_POST['password'] === $_POST['confirm_password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $first_name = $_POST['first_name'];

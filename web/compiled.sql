@@ -12,6 +12,9 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `wad_g7`
+
+CREATE DATABASE IF NOT EXISTS   `wad_t7` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE  `wad_t7`;
 --
 
 -- --------------------------------------------------------
@@ -20,7 +23,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
-CREATE TABLE `items` (
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE IF NOT EXISTS  `items` (
   `nid` int(11) NOT NULL,
   `cid` varchar(256) NOT NULL,
   `username` varchar(256) NOT NULL,
@@ -42,8 +46,8 @@ INSERT INTO `items` (`nid`, `cid`, `username`, `item`, `info`) VALUES
 --
 -- Table structure for table `market`
 --
-
-CREATE TABLE `market` (
+DROP TABLE IF EXISTS `market`;
+CREATE TABLE IF NOT EXISTS `market` (
   `id` int(11) NOT NULL,
   `listname` varchar(100) NOT NULL,
   `price` varchar(20) NOT NULL,
@@ -65,8 +69,8 @@ INSERT INTO `market` (`id`, `listname`, `price`, `description`) VALUES
 --
 -- Table structure for table `modules`
 --
-
-CREATE TABLE `modules` (
+DROP TABLE IF EXISTS `modules`;
+CREATE TABLE IF NOT EXISTS `modules` (
   `sid` varchar(256) NOT NULL,
   `cid` varchar(256) NOT NULL,
   `cname` varchar(256) NOT NULL
@@ -88,8 +92,8 @@ INSERT INTO `modules` (`sid`, `cid`, `cname`) VALUES
 --
 -- Table structure for table `post`
 --
-
-CREATE TABLE `post` (
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL,
   `create_timestamp` datetime DEFAULT NULL,
   `update_timestamp` datetime DEFAULT NULL,
@@ -114,8 +118,8 @@ INSERT INTO `post` (`id`, `create_timestamp`, `update_timestamp`, `subject`, `en
 --
 -- Table structure for table `replies`
 --
-
-CREATE TABLE `replies` (
+DROP TABLE IF EXISTS `replies`;
+CREATE TABLE IF NOT EXISTS `replies` (
   `id` int(11) NOT NULL DEFAULT '0',
   `likes` int(11) DEFAULT '0',
   `reply_id` int(11) NOT NULL,
@@ -159,8 +163,8 @@ INSERT INTO `replies` (`id`, `likes`, `reply_id`, `date`, `username`, `reply`) V
 --
 -- Table structure for table `school`
 --
-
-CREATE TABLE `school` (
+DROP TABLE IF EXISTS `school`;
+CREATE TABLE IF NOT EXISTS `school` (
   `sid` varchar(256) NOT NULL,
   `sname` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -183,8 +187,8 @@ INSERT INTO `school` (`sid`, `sname`) VALUES
 --
 -- Table structure for table `threads`
 --
-
-CREATE TABLE `threads` (
+DROP TABLE IF EXISTS `threads`;
+CREATE TABLE IF NOT EXISTS `threads` (
   `id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `username` varchar(256) NOT NULL,
@@ -263,7 +267,8 @@ INSERT INTO `threads` (`id`, `date`, `username`, `threadName`, `content`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `user`; 
+CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) NOT NULL,
   `first_name` varchar(250) NOT NULL,
   `last_name` varchar(250) NOT NULL,
