@@ -33,3 +33,33 @@ For local deployment:
 
 
 
+
+
+
+DATABASE CONFIGURATIONS
+
+For Mac Users:
+
+    [Default user for Mac is 'root']
+    [Default password for Mac is 'root']
+
+    Ensure that the following passwords in the files are set correctly:
+        -/web/forum/conn.php
+        -/web/forum/database/ConnectionManager.php 
+        -/web/notes/notes.php
+        -/web/notes/database/model/ConnectionManager.php
+        -/web/notes/getModule.php  
+
+
+For Windows Users:
+
+    [Default user for Windows is 'root']
+    [Default password for Windows is 'root']
+
+    Ensure that the following passwords in the files are set correctly:
+        -/web/forum/conn.php
+        -/web/forum/database/ConnectionManager.php 
+        -/web/notes/notes.php
+        -/web/notes/database/model/ConnectionManager.php
+        -/web/notes/getModule.php  
+
