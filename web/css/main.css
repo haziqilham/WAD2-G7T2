@@ -74,19 +74,19 @@
     animation: showup 10s infinite;
 }
 .animate2{
-    animation: showup 10s infinite;
+    animation: showup 4s infinite;
 }
 .animate3{
-    animation: showup 10s infinite;
+    animation: showup 5s infinite;
 }
 .animate4{
-    animation: showup 10s infinite;
+    animation: showup 6s infinite;
 }
 .animate4{
-    animation: showup 10s infinite;
+    animation: showup 7s infinite;
 }
 .animate5{
-    animation: showup 10s infinite;
+    animation: showup 8s infinite;
 }
 
 /* .animate:last-of-type{
@@ -308,10 +308,14 @@ body {
     height : 50px;
     border-radius : 50px;
   }
+
+  
   
   #buttons button#shortBreak{
     background : #0c0;
   }
+
+
   
   #buttons button#longBreak{
     background : #080;
