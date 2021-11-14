@@ -1,4 +1,4 @@
-const app = Vue.createApp({
+const app2 = Vue.createApp({
     data() {
         return {
             allData:{},
@@ -45,7 +45,7 @@ const app = Vue.createApp({
     }
 })
 
-const vm = app.mount('#app')
+const vm2 = app2.mount('#app2')
 
 
 

@@ -10,4 +10,4 @@ CREATE TABLE IF NOT EXISTS user (
 );
 
 
-INSERT INTO `user` (`id_name`, `email`, `hashed_password`) VALUES ('test', 'test@test.com', 'test');
+INSERT INTO `user` (`email`, `first_name`, `last_name`, `hashed_password`) VALUES ('jjtan.2020@scis.smu.edu.sg', 'Jun Jie', 'Tan', '$2y$10$TpC20LPtcjLYhiyMxrpdT.eBncXHtPoWPJFyVQLBosdTz9ng8nqu2')
