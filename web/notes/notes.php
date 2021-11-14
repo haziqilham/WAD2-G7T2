@@ -57,7 +57,7 @@ $connect = mysqli_connect("localhost", "root", "", "wad_t7");
 
 </head>
 
-<body data-spy="scroll" data-target="#top-navbar" style="background-image: url(../marketplace/img/background.png); background-position: center; height: 100%; background-repeat: no-repeat; background-size: cover;">
+<body data-spy="scroll" data-target="#top-navbar" style="background-image: url(../marketplace/img/background.png);background-size: cover;">
     <div id='app'>
         <nav id="top-navbar" class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
             <a class="navbar-brand" href="../index.html" style="padding-left: 8px;">
